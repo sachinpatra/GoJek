@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		8C43FC14221F204300325E67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC13221F204300325E67 /* AppDelegate.swift */; };
-		8C43FC16221F204300325E67 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC15221F204300325E67 /* ViewController.swift */; };
 		8C43FC19221F204300325E67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC17221F204300325E67 /* Main.storyboard */; };
 		8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC1A221F204300325E67 /* GoJekContact.xcdatamodeld */; };
 		8C43FC1E221F204500325E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1D221F204500325E67 /* Assets.xcassets */; };
 		8C43FC21221F204500325E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */; };
 		8C43FC2C221F204600325E67 /* GoJekContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC2B221F204600325E67 /* GoJekContactTests.swift */; };
 		8C43FC37221F204600325E67 /* GoJekContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC36221F204600325E67 /* GoJekContactUITests.swift */; };
+		8C43FC45221F296300325E67 /* ContactsListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC44221F296300325E67 /* ContactsListTableController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,6 @@
 /* Begin PBXFileReference section */
 		8C43FC10221F204300325E67 /* GoJekContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoJekContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43FC13221F204300325E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C43FC15221F204300325E67 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8C43FC18221F204300325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8C43FC1B221F204300325E67 /* GoJekContact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoJekContact.xcdatamodel; sourceTree = "<group>"; };
 		8C43FC1D221F204500325E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,19 @@
 		8C43FC32221F204600325E67 /* GoJekContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoJekContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43FC36221F204600325E67 /* GoJekContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoJekContactUITests.swift; sourceTree = "<group>"; };
 		8C43FC38221F204600325E67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C43FC44221F296300325E67 /* ContactsListTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListTableController.swift; sourceTree = "<group>"; };
+		8C43FC4A221F2F4E00325E67 /* SFUIText-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-LightItalic.ttf"; sourceTree = "<group>"; };
+		8C43FC4B221F2F4E00325E67 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
+		8C43FC4C221F2F4E00325E67 /* SFUIText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		8C43FC4D221F2F4E00325E67 /* SFUIText-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Light.ttf"; sourceTree = "<group>"; };
+		8C43FC4E221F2F4F00325E67 /* SFUIText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Medium.ttf"; sourceTree = "<group>"; };
+		8C43FC4F221F2F4F00325E67 /* SFUIText-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-BoldItalic.ttf"; sourceTree = "<group>"; };
+		8C43FC50221F2F4F00325E67 /* SFUIText-Heavy.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Heavy.ttf"; sourceTree = "<group>"; };
+		8C43FC51221F2F4F00325E67 /* SFUIText-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Bold.ttf"; sourceTree = "<group>"; };
+		8C43FC52221F2F4F00325E67 /* SFUIText-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-MediumItalic.ttf"; sourceTree = "<group>"; };
+		8C43FC53221F2F4F00325E67 /* SFUIText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Regular.ttf"; sourceTree = "<group>"; };
+		8C43FC54221F2F4F00325E67 /* SFUIText-HeavyItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-HeavyItalic.ttf"; sourceTree = "<group>"; };
+		8C43FC55221F2F5000325E67 /* SFUIText-RegularItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-RegularItalic.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +111,9 @@
 		8C43FC12221F204300325E67 /* GoJekContact */ = {
 			isa = PBXGroup;
 			children = (
+				8C43FC48221F2F1000325E67 /* Resources */,
+				8C43FC46221F297200325E67 /* MVVM */,
 				8C43FC13221F204300325E67 /* AppDelegate.swift */,
-				8C43FC15221F204300325E67 /* ViewController.swift */,
 				8C43FC17221F204300325E67 /* Main.storyboard */,
 				8C43FC1D221F204500325E67 /* Assets.xcassets */,
 				8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */,
@@ -126,6 +139,49 @@
 				8C43FC38221F204600325E67 /* Info.plist */,
 			);
 			path = GoJekContactUITests;
+			sourceTree = "<group>";
+		};
+		8C43FC46221F297200325E67 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC47221F297E00325E67 /* View */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		8C43FC47221F297E00325E67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC44221F296300325E67 /* ContactsListTableController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8C43FC48221F2F1000325E67 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC49221F2F2F00325E67 /* Font */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C43FC49221F2F2F00325E67 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC51221F2F4F00325E67 /* SFUIText-Bold.ttf */,
+				8C43FC4F221F2F4F00325E67 /* SFUIText-BoldItalic.ttf */,
+				8C43FC50221F2F4F00325E67 /* SFUIText-Heavy.ttf */,
+				8C43FC54221F2F4F00325E67 /* SFUIText-HeavyItalic.ttf */,
+				8C43FC4D221F2F4E00325E67 /* SFUIText-Light.ttf */,
+				8C43FC4A221F2F4E00325E67 /* SFUIText-LightItalic.ttf */,
+				8C43FC4E221F2F4F00325E67 /* SFUIText-Medium.ttf */,
+				8C43FC52221F2F4F00325E67 /* SFUIText-MediumItalic.ttf */,
+				8C43FC53221F2F4F00325E67 /* SFUIText-Regular.ttf */,
+				8C43FC55221F2F5000325E67 /* SFUIText-RegularItalic.ttf */,
+				8C43FC4B221F2F4E00325E67 /* SFUIText-Semibold.ttf */,
+				8C43FC4C221F2F4E00325E67 /* SFUIText-SemiboldItalic.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,7 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C43FC16221F204300325E67 /* ViewController.swift in Sources */,
+				8C43FC45221F296300325E67 /* ContactsListTableController.swift in Sources */,
 				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
 				8C43FC14221F204300325E67 /* AppDelegate.swift in Sources */,
 			);
