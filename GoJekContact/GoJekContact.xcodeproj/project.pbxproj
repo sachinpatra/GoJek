@@ -9,19 +9,38 @@
 /* Begin PBXBuildFile section */
 		2F7A38AC503AA9CCE8570C4E /* Pods_GoJekContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7C85E5E63F0FAEFE21B57 /* Pods_GoJekContactUITests.framework */; };
 		8C43FC14221F204300325E67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC13221F204300325E67 /* AppDelegate.swift */; };
-		8C43FC19221F204300325E67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC17221F204300325E67 /* Main.storyboard */; };
+		8C43FC19221F204300325E67 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC17221F204300325E67 /* Contact.storyboard */; };
 		8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC1A221F204300325E67 /* GoJekContact.xcdatamodeld */; };
 		8C43FC1E221F204500325E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1D221F204500325E67 /* Assets.xcassets */; };
 		8C43FC21221F204500325E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */; };
 		8C43FC2C221F204600325E67 /* GoJekContactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC2B221F204600325E67 /* GoJekContactTests.swift */; };
 		8C43FC37221F204600325E67 /* GoJekContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC36221F204600325E67 /* GoJekContactUITests.swift */; };
-		8C43FC45221F296300325E67 /* ContactsListTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC44221F296300325E67 /* ContactsListTableController.swift */; };
 		8C43FC57221FDB7E00325E67 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC56221FDB7E00325E67 /* .swiftlint.yml */; };
 		8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */; };
 		8C43FC5C221FDD2000325E67 /* UITableViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */; };
 		8C43FC5D221FDD2100325E67 /* UITableViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */; };
 		8C43FC5F221FDD6100325E67 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC5E221FDD6100325E67 /* Utility.swift */; };
 		8C43FC62221FE05A00325E67 /* ContactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC61221FE05A00325E67 /* ContactsListViewModel.swift */; };
+		8C43FC65221FF7FF00325E67 /* ContactsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC64221FF7FF00325E67 /* ContactsModel.swift */; };
+		8C43FC67221FFEA000325E67 /* ContactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC66221FFEA000325E67 /* ContactsListViewController.swift */; };
+		8C43FC6A22201D9600325E67 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC6922201D9600325E67 /* Constants.swift */; };
+		8C43FC6C222025FE00325E67 /* UIAlertControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC6B222025FE00325E67 /* UIAlertControllerExtention.swift */; };
+		8C43FC6E2220568800325E67 /* ErrorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC6D2220568800325E67 /* ErrorTracker.swift */; };
+		8C43FC70222056B700325E67 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC6F222056B700325E67 /* ActivityIndicator.swift */; };
+		8C43FC722220673A00325E67 /* ObservableExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC712220673A00325E67 /* ObservableExtention.swift */; };
+		8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC732220779F00325E67 /* ContactUseCase.swift */; };
+		8C43FC7622207AE900325E67 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC7522207AE900325E67 /* Contact.swift */; };
+		8C43FC7822207D3F00325E67 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC7722207D3F00325E67 /* ViewModelType.swift */; };
+		8C43FC7A22207FBB00325E67 /* ContactsNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC7922207FBB00325E67 /* ContactsNavigator.swift */; };
+		8C43FC7C22208C1800325E67 /* UIStoryboardExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC7B22208C1800325E67 /* UIStoryboardExtention.swift */; };
+		8C43FC7E22208FB300325E67 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC7D22208FB300325E67 /* Application.swift */; };
+		8C43FC812220981800325E67 /* NetworkUseCaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC802220981800325E67 /* NetworkUseCaseProvider.swift */; };
+		8C43FC832220997800325E67 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC822220997800325E67 /* Network.swift */; };
+		8C43FC8522209BF100325E67 /* ContactsNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8422209BF100325E67 /* ContactsNetwork.swift */; };
+		8C43FC8722209E3600325E67 /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8622209E3600325E67 /* Encodable.swift */; };
+		8C43FC8922209E7500325E67 /* ContactMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8822209E7500325E67 /* ContactMapping.swift */; };
+		8C43FC8B2220A7C300325E67 /* NetworkContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8A2220A7C300325E67 /* NetworkContactsUseCase.swift */; };
+		8C43FC8D2220A84000325E67 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8C2220A84000325E67 /* Cache.swift */; };
 		F0DAF82E247B99CB771F1B4A /* Pods_GoJekContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */; };
 		F46CD107AEE1CF4733174CEA /* Pods_GoJekContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +70,7 @@
 		73D29B6E25FA1B8BABD3B23C /* Pods-GoJekContactUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoJekContactUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GoJekContactUITests/Pods-GoJekContactUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C43FC10221F204300325E67 /* GoJekContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoJekContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43FC13221F204300325E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8C43FC18221F204300325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C43FC18221F204300325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contact.storyboard; sourceTree = "<group>"; };
 		8C43FC1B221F204300325E67 /* GoJekContact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoJekContact.xcdatamodel; sourceTree = "<group>"; };
 		8C43FC1D221F204500325E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C43FC20221F204500325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,7 +81,6 @@
 		8C43FC32221F204600325E67 /* GoJekContactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoJekContactUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43FC36221F204600325E67 /* GoJekContactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoJekContactUITests.swift; sourceTree = "<group>"; };
 		8C43FC38221F204600325E67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C43FC44221F296300325E67 /* ContactsListTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListTableController.swift; sourceTree = "<group>"; };
 		8C43FC4A221F2F4E00325E67 /* SFUIText-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-LightItalic.ttf"; sourceTree = "<group>"; };
 		8C43FC4B221F2F4E00325E67 /* SFUIText-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-Semibold.ttf"; sourceTree = "<group>"; };
 		8C43FC4C221F2F4E00325E67 /* SFUIText-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFUIText-SemiboldItalic.ttf"; sourceTree = "<group>"; };
@@ -79,6 +97,26 @@
 		8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtention.swift; sourceTree = "<group>"; };
 		8C43FC5E221FDD6100325E67 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		8C43FC61221FE05A00325E67 /* ContactsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewModel.swift; sourceTree = "<group>"; };
+		8C43FC64221FF7FF00325E67 /* ContactsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsModel.swift; sourceTree = "<group>"; };
+		8C43FC66221FFEA000325E67 /* ContactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListViewController.swift; sourceTree = "<group>"; };
+		8C43FC6922201D9600325E67 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8C43FC6B222025FE00325E67 /* UIAlertControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtention.swift; sourceTree = "<group>"; };
+		8C43FC6D2220568800325E67 /* ErrorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTracker.swift; sourceTree = "<group>"; };
+		8C43FC6F222056B700325E67 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
+		8C43FC712220673A00325E67 /* ObservableExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableExtention.swift; sourceTree = "<group>"; };
+		8C43FC732220779F00325E67 /* ContactUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUseCase.swift; sourceTree = "<group>"; };
+		8C43FC7522207AE900325E67 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		8C43FC7722207D3F00325E67 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		8C43FC7922207FBB00325E67 /* ContactsNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsNavigator.swift; sourceTree = "<group>"; };
+		8C43FC7B22208C1800325E67 /* UIStoryboardExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtention.swift; sourceTree = "<group>"; };
+		8C43FC7D22208FB300325E67 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		8C43FC802220981800325E67 /* NetworkUseCaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUseCaseProvider.swift; sourceTree = "<group>"; };
+		8C43FC822220997800325E67 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8C43FC8422209BF100325E67 /* ContactsNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsNetwork.swift; sourceTree = "<group>"; };
+		8C43FC8622209E3600325E67 /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
+		8C43FC8822209E7500325E67 /* ContactMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactMapping.swift; sourceTree = "<group>"; };
+		8C43FC8A2220A7C300325E67 /* NetworkContactsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContactsUseCase.swift; sourceTree = "<group>"; };
+		8C43FC8C2220A84000325E67 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		B78E69090F98E51F13A33D06 /* Pods-GoJekContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoJekContact.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoJekContact/Pods-GoJekContact.release.xcconfig"; sourceTree = "<group>"; };
 		C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContactTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +191,7 @@
 				8C43FC48221F2F1000325E67 /* Resources */,
 				8C43FC46221F297200325E67 /* MVVM */,
 				8C43FC13221F204300325E67 /* AppDelegate.swift */,
-				8C43FC17221F204300325E67 /* Main.storyboard */,
+				8C43FC17221F204300325E67 /* Contact.storyboard */,
 				8C43FC1D221F204500325E67 /* Assets.xcassets */,
 				8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */,
 				8C43FC22221F204500325E67 /* Info.plist */,
@@ -183,6 +221,7 @@
 		8C43FC46221F297200325E67 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				8C43FC63221FF7E400325E67 /* Model */,
 				8C43FC60221FE03C00325E67 /* ViewModel */,
 				8C43FC47221F297E00325E67 /* View */,
 			);
@@ -192,7 +231,7 @@
 		8C43FC47221F297E00325E67 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8C43FC44221F296300325E67 /* ContactsListTableController.swift */,
+				8C43FC66221FFEA000325E67 /* ContactsListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -200,8 +239,17 @@
 		8C43FC48221F2F1000325E67 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8C43FC7F2220978B00325E67 /* Network */,
 				8C43FC49221F2F2F00325E67 /* Font */,
 				8C43FC5E221FDD6100325E67 /* Utility.swift */,
+				8C43FC6922201D9600325E67 /* Constants.swift */,
+				8C43FC6D2220568800325E67 /* ErrorTracker.swift */,
+				8C43FC6F222056B700325E67 /* ActivityIndicator.swift */,
+				8C43FC712220673A00325E67 /* ObservableExtention.swift */,
+				8C43FC732220779F00325E67 /* ContactUseCase.swift */,
+				8C43FC7722207D3F00325E67 /* ViewModelType.swift */,
+				8C43FC7922207FBB00325E67 /* ContactsNavigator.swift */,
+				8C43FC7D22208FB300325E67 /* Application.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -229,6 +277,8 @@
 			isa = PBXGroup;
 			children = (
 				8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */,
+				8C43FC6B222025FE00325E67 /* UIAlertControllerExtention.swift */,
+				8C43FC7B22208C1800325E67 /* UIStoryboardExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -239,6 +289,29 @@
 				8C43FC61221FE05A00325E67 /* ContactsListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8C43FC63221FF7E400325E67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC64221FF7FF00325E67 /* ContactsModel.swift */,
+				8C43FC7522207AE900325E67 /* Contact.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8C43FC7F2220978B00325E67 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8C43FC802220981800325E67 /* NetworkUseCaseProvider.swift */,
+				8C43FC822220997800325E67 /* Network.swift */,
+				8C43FC8422209BF100325E67 /* ContactsNetwork.swift */,
+				8C43FC8622209E3600325E67 /* Encodable.swift */,
+				8C43FC8822209E7500325E67 /* ContactMapping.swift */,
+				8C43FC8A2220A7C300325E67 /* NetworkContactsUseCase.swift */,
+				8C43FC8C2220A84000325E67 /* Cache.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		DF92FCCEA260095EE8E52CF1 /* Pods */ = {
@@ -366,7 +439,7 @@
 				8C43FC57221FDB7E00325E67 /* .swiftlint.yml in Resources */,
 				8C43FC21221F204500325E67 /* LaunchScreen.storyboard in Resources */,
 				8C43FC1E221F204500325E67 /* Assets.xcassets in Resources */,
-				8C43FC19221F204300325E67 /* Main.storyboard in Resources */,
+				8C43FC19221F204300325E67 /* Contact.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,28 +514,34 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GoJekContact/Pods-GoJekContact-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyImage/SwiftyImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -515,12 +594,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C43FC7E22208FB300325E67 /* Application.swift in Sources */,
+				8C43FC8B2220A7C300325E67 /* NetworkContactsUseCase.swift in Sources */,
 				8C43FC5F221FDD6100325E67 /* Utility.swift in Sources */,
 				8C43FC62221FE05A00325E67 /* ContactsListViewModel.swift in Sources */,
+				8C43FC67221FFEA000325E67 /* ContactsListViewController.swift in Sources */,
 				8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */,
-				8C43FC45221F296300325E67 /* ContactsListTableController.swift in Sources */,
 				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
+				8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */,
+				8C43FC7622207AE900325E67 /* Contact.swift in Sources */,
+				8C43FC812220981800325E67 /* NetworkUseCaseProvider.swift in Sources */,
+				8C43FC70222056B700325E67 /* ActivityIndicator.swift in Sources */,
+				8C43FC832220997800325E67 /* Network.swift in Sources */,
+				8C43FC7822207D3F00325E67 /* ViewModelType.swift in Sources */,
+				8C43FC6C222025FE00325E67 /* UIAlertControllerExtention.swift in Sources */,
+				8C43FC7C22208C1800325E67 /* UIStoryboardExtention.swift in Sources */,
+				8C43FC722220673A00325E67 /* ObservableExtention.swift in Sources */,
 				8C43FC14221F204300325E67 /* AppDelegate.swift in Sources */,
+				8C43FC7A22207FBB00325E67 /* ContactsNavigator.swift in Sources */,
+				8C43FC65221FF7FF00325E67 /* ContactsModel.swift in Sources */,
+				8C43FC8922209E7500325E67 /* ContactMapping.swift in Sources */,
+				8C43FC6A22201D9600325E67 /* Constants.swift in Sources */,
+				8C43FC8D2220A84000325E67 /* Cache.swift in Sources */,
+				8C43FC6E2220568800325E67 /* ErrorTracker.swift in Sources */,
+				8C43FC8522209BF100325E67 /* ContactsNetwork.swift in Sources */,
+				8C43FC8722209E3600325E67 /* Encodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,12 +656,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8C43FC17221F204300325E67 /* Main.storyboard */ = {
+		8C43FC17221F204300325E67 /* Contact.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				8C43FC18221F204300325E67 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Contact.storyboard;
 			sourceTree = "<group>";
 		};
 		8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */ = {

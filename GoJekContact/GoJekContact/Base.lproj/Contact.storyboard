@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Contact-->
+        <scene sceneID="2b9-zy-iJf">
+            <objects>
+                <viewController storyboardIdentifier="ContactsListViewController" id="fS9-ZN-csw" customClass="ContactsListViewController" customModule="GoJekContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tsz-2u-OO9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LE4-xf-2D8">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactListCell" rowHeight="65" id="7Tc-sE-bV6" customClass="ContactListCell" customModule="GoJekContact" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Tc-sE-bV6" id="uHh-Rh-Yqg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="KCI-Hc-QP8">
+                                                    <rect key="frame" x="16" y="12.5" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="4NB-od-lR1"/>
+                                                        <constraint firstAttribute="height" constant="40" id="oRE-GE-68g"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hell0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-WO-gMv">
+                                                    <rect key="frame" x="72" y="24" width="237" height="16.5"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favourite_status" translatesAutoresizingMaskIntoConstraints="NO" id="5V6-RU-eil">
+                                                    <rect key="frame" x="319" y="20.5" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="24" id="JRj-Ou-kAS"/>
+                                                        <constraint firstAttribute="height" constant="24" id="lxi-sI-5Pn"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KCI-Hc-QP8" firstAttribute="centerY" secondItem="uHh-Rh-Yqg" secondAttribute="centerY" id="7z1-oG-0rm"/>
+                                                <constraint firstItem="5V6-RU-eil" firstAttribute="centerY" secondItem="uHh-Rh-Yqg" secondAttribute="centerY" id="Fnu-CI-2A3"/>
+                                                <constraint firstItem="ZDJ-WO-gMv" firstAttribute="centerY" secondItem="KCI-Hc-QP8" secondAttribute="centerY" id="Mew-kX-reU"/>
+                                                <constraint firstAttribute="trailing" secondItem="5V6-RU-eil" secondAttribute="trailing" constant="32" id="NWj-F0-Crw"/>
+                                                <constraint firstItem="5V6-RU-eil" firstAttribute="leading" secondItem="ZDJ-WO-gMv" secondAttribute="trailing" constant="10" id="Qqf-fS-uNe"/>
+                                                <constraint firstItem="ZDJ-WO-gMv" firstAttribute="leading" secondItem="KCI-Hc-QP8" secondAttribute="trailing" constant="16" id="WNh-rD-hqS"/>
+                                                <constraint firstItem="KCI-Hc-QP8" firstAttribute="leading" secondItem="uHh-Rh-Yqg" secondAttribute="leading" constant="16" id="kw0-pk-Ypd"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contactImageView" destination="KCI-Hc-QP8" id="HXl-Bk-KB3"/>
+                                            <outlet property="contactName" destination="ZDJ-WO-gMv" id="kHG-Uc-wH9"/>
+                                            <outlet property="favouriteStatusImage" destination="5V6-RU-eil" id="mbf-IM-Jti"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Etz-Qo-EvR" firstAttribute="trailing" secondItem="LE4-xf-2D8" secondAttribute="trailing" id="WVL-GX-Ted"/>
+                            <constraint firstItem="LE4-xf-2D8" firstAttribute="top" secondItem="Etz-Qo-EvR" secondAttribute="top" id="ZdF-kv-5MQ"/>
+                            <constraint firstItem="LE4-xf-2D8" firstAttribute="leading" secondItem="Etz-Qo-EvR" secondAttribute="leading" id="ceM-DH-86x"/>
+                            <constraint firstItem="Etz-Qo-EvR" firstAttribute="bottom" secondItem="LE4-xf-2D8" secondAttribute="bottom" id="wDP-Nh-IaY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Etz-Qo-EvR"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contact" id="VEl-ze-Zhj">
+                        <barButtonItem key="leftBarButtonItem" title="Groups" id="xDR-ze-Npi"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="1z8-Id-hGP"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addContactButton" destination="1z8-Id-hGP" id="aaf-i1-xpB"/>
+                        <outlet property="tableView" destination="LE4-xf-2D8" id="2XS-7E-eDs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3RH-JJ-HVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="666" y="818"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="favourite_status" width="19" height="18"/>
+        <image name="placeholder" width="126" height="126"/>
+    </resources>
+</document>
