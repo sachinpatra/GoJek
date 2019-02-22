@@ -1,0 +1,33 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+def common_pods
+	use_frameworks!
+
+	pod 'RxSwift'
+	pod 'RxCocoa'
+	pod 'Kingfisher'
+	pod 'ReachabilitySwift'
+	pod 'RxDataSources'
+	pod 'SwiftDate'
+	pod 'SwiftLint'
+	pod 'Action'
+	pod 'SwiftyImage'
+
+end
+
+target 'GoJekContact' do
+
+	common_pods
+
+  target 'GoJekContactTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GoJekContactUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

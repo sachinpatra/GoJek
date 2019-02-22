@@ -1,0 +1,16 @@
+excluded:
+    - Pods
+
+line_length:
+    - 800 # warning
+    - 900 # error
+
+disabled_rules:
+    - force_cast
+    - trailing_whitespace
+    - vertical_whitespace
+    - identifier_name
+    - unused_closure_parameter
+    - function_body_length
+    - empty_enum_arguments
+

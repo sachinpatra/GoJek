@@ -1,0 +1,6 @@
+framework module Pods_GoJekContactUITests {
+  umbrella header "Pods-GoJekContactUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

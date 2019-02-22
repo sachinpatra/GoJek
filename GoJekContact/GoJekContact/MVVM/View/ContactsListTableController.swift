@@ -21,7 +21,7 @@ class ContactsListTableController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ContactListCell", for: indexPath) as! ContactListCell
+        let cell: ContactListCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         //cell.favouriteStatusImage.isHidden = true
         return cell
     }

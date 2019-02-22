@@ -1,0 +1,57 @@
+PODS:
+  - Action (3.8.0):
+    - RxCocoa (~> 4.3.0)
+    - RxSwift (~> 4.3.0)
+  - Differentiator (3.1.0)
+  - Kingfisher (4.10.0)
+  - ReachabilitySwift (4.3.0)
+  - RxCocoa (4.3.1):
+    - RxSwift (~> 4.0)
+  - RxDataSources (3.1.0):
+    - Differentiator (~> 3.0)
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.3.1)
+  - SwiftDate (5.0.13)
+  - SwiftLint (0.27.0)
+  - SwiftyImage (1.3.0)
+
+DEPENDENCIES:
+  - Action
+  - Kingfisher
+  - ReachabilitySwift
+  - RxCocoa
+  - RxDataSources
+  - RxSwift
+  - SwiftDate
+  - SwiftLint
+  - SwiftyImage
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Action
+    - Differentiator
+    - Kingfisher
+    - ReachabilitySwift
+    - RxCocoa
+    - RxDataSources
+    - RxSwift
+    - SwiftDate
+    - SwiftLint
+    - SwiftyImage
+
+SPEC CHECKSUMS:
+  Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
+  Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  SwiftyImage: 62a73a6d8cafb83d7ebbf98795c6d1ad8666bf02
+
+PODFILE CHECKSUM: 8a8028ab8b6346d7155102e84b877332e873817f
+
+COCOAPODS: 1.5.3
