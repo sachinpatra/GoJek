@@ -17,6 +17,7 @@ public struct Contact: Codable {
     public let detailURL: String
     public let favourite: Bool
     public let uid: Int
+    public let profilePic: String
 
     public init(firstName: String,
                 lastName: String,
@@ -24,6 +25,7 @@ public struct Contact: Codable {
                 phoneNumber: String,
                 detailURL: String,
                 uid: Int,
+                profilePic: String,
                 favourite: Bool) {
         self.firstName = firstName
         self.lastName = lastName
@@ -32,6 +34,7 @@ public struct Contact: Codable {
         self.detailURL = detailURL
         self.favourite = favourite
         self.uid = uid
+        self.profilePic = profilePic
     }
     
     private enum CodingKeys: String, CodingKey {
@@ -42,6 +45,7 @@ public struct Contact: Codable {
         case detailURL = "url"
         case favourite = "favorite"
         case uid = "id"
+        case profilePic = "profile_pic"
     }
     
     public init(from decoder: Decoder) throws {
@@ -58,7 +62,7 @@ public struct Contact: Codable {
         lastName = try container.decode(String.self, forKey: .lastName)
         detailURL = try container.decode(String.self, forKey: .detailURL)
         favourite = try container.decode(Bool.self, forKey: .favourite)
-        //print("")
+        profilePic = try container.decode(String.self, forKey: .profilePic)
         
         if let email = try container.decodeIfPresent(String.self, forKey: Contact.CodingKeys(rawValue: CodingKeys.email.rawValue)!) {
             self.email = email
@@ -82,6 +86,7 @@ extension Contact: Equatable {
             lhs.detailURL == rhs.detailURL &&
             lhs.phoneNumber == rhs.phoneNumber &&
             lhs.uid == rhs.uid &&
+            lhs.profilePic == rhs.profilePic &&
             lhs.favourite == rhs.favourite
     }
 }

@@ -100,6 +100,34 @@
             </objects>
             <point key="canvasLocation" x="666" y="818"/>
         </scene>
+        <!--Title-->
+        <scene sceneID="eQk-h0-hzX">
+            <objects>
+                <viewController storyboardIdentifier="ContactDetailsViewController" id="fq9-S3-YDa" customClass="ContactDetailsViewController" customModule="GoJekContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5r8-i4-mcf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hpg-C1-BDg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hpg-C1-BDg" firstAttribute="top" secondItem="QDZ-Hm-PRr" secondAttribute="top" id="25N-Yi-vR7"/>
+                            <constraint firstItem="QDZ-Hm-PRr" firstAttribute="trailing" secondItem="hpg-C1-BDg" secondAttribute="trailing" id="oH0-gE-taA"/>
+                            <constraint firstItem="QDZ-Hm-PRr" firstAttribute="bottom" secondItem="hpg-C1-BDg" secondAttribute="bottom" id="obv-Pz-9v9"/>
+                            <constraint firstItem="hpg-C1-BDg" firstAttribute="leading" secondItem="QDZ-Hm-PRr" secondAttribute="leading" id="yG7-ax-f9p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="QDZ-Hm-PRr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="vha-hW-Tcm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEw-40-7oh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1668" y="817"/>
+        </scene>
     </scenes>
     <resources>
         <image name="favourite_status" width="19" height="18"/>

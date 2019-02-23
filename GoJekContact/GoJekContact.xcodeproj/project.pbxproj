@@ -41,6 +41,7 @@
 		8C43FC8B2220A7C300325E67 /* NetworkContactsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8A2220A7C300325E67 /* NetworkContactsUseCase.swift */; };
 		8C43FC8D2220A84000325E67 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8C2220A84000325E67 /* Cache.swift */; };
 		8C43FC8F2221DF0D00325E67 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8E2221DF0D00325E67 /* ContactDetailsViewController.swift */; };
+		8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */; };
 		F0DAF82E247B99CB771F1B4A /* Pods_GoJekContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */; };
 		F46CD107AEE1CF4733174CEA /* Pods_GoJekContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */; };
 /* End PBXBuildFile section */
@@ -117,6 +118,7 @@
 		8C43FC8A2220A7C300325E67 /* NetworkContactsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkContactsUseCase.swift; sourceTree = "<group>"; };
 		8C43FC8C2220A84000325E67 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		8C43FC8E2221DF0D00325E67 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
+		8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
 		B78E69090F98E51F13A33D06 /* Pods-GoJekContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoJekContact.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoJekContact/Pods-GoJekContact.release.xcconfig"; sourceTree = "<group>"; };
 		C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContactTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -288,6 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				8C43FC61221FE05A00325E67 /* ContactsListViewModel.swift */,
+				8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -600,6 +603,7 @@
 				8C43FC5F221FDD6100325E67 /* Utility.swift in Sources */,
 				8C43FC62221FE05A00325E67 /* ContactsListViewModel.swift in Sources */,
 				8C43FC67221FFEA000325E67 /* ContactsListViewController.swift in Sources */,
+				8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */,
 				8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */,
 				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
 				8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */,

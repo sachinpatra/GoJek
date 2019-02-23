@@ -19,7 +19,8 @@ extension Contact {
             "phoneNumber": phoneNumber,
             "detailURL": detailURL,
             "favourite": favourite,
-            "uid": uid
+            "uid": uid,
+            "profilePic": profilePic
         ]
     }
 }
@@ -39,6 +40,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
         static let email = "email"
         static let phoneNumber = "phoneNumber"
         static let detailURL = "detailURL"
+        static let profilePic = "profilePic"
     }
     let firstName: String
     let lastName: String
@@ -47,6 +49,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
     let email: String
     let phoneNumber: String
     let detailURL: String
+    let profilePic: String
     
     init(with domain: Contact) {
         self.firstName = domain.firstName
@@ -56,6 +59,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
         self.email = domain.email
         self.phoneNumber = domain.phoneNumber
         self.detailURL = domain.detailURL
+        self.profilePic = domain.profilePic
     }
     
     init?(coder aDecoder: NSCoder) {
@@ -66,7 +70,8 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
             let uid = aDecoder.decodeObject(forKey: Keys.uid) as? Int,
             let email = aDecoder.decodeObject(forKey: Keys.email) as? String,
             let phoneNumber = aDecoder.decodeObject(forKey: Keys.phoneNumber) as? String,
-            let detailURL = aDecoder.decodeObject(forKey: Keys.detailURL) as? String
+            let detailURL = aDecoder.decodeObject(forKey: Keys.detailURL) as? String,
+            let profilePic = aDecoder.decodeObject(forKey: Keys.profilePic) as? String
             else {
                 return nil
         }
@@ -77,6 +82,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
         self.email = email
         self.phoneNumber = phoneNumber
         self.detailURL = detailURL
+        self.profilePic = profilePic
     }
     
     func encode(with aCoder: NSCoder) {
@@ -87,6 +93,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
         aCoder.encode(email, forKey: Keys.email)
         aCoder.encode(phoneNumber, forKey: Keys.phoneNumber)
         aCoder.encode(detailURL, forKey: Keys.detailURL)
+        aCoder.encode(profilePic, forKey: Keys.profilePic)
     }
     
     func asDomain() -> Contact {
@@ -96,6 +103,7 @@ final class NETPost: NSObject, NSCoding, DomainConvertibleType {
                     phoneNumber: phoneNumber,
                     detailURL: detailURL,
                     uid: uid,
+                    profilePic: profilePic,
                     favourite: favourite)
     }
 }

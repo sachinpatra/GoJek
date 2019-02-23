@@ -20,7 +20,7 @@ final class Application {
         let storyboard = UIStoryboard(name: "Contact", bundle: nil)
         let navController = UINavigationController()
         navController.navigationBar.tintColor = #colorLiteral(red: 0.3599199653, green: 0.9019572735, blue: 0.804747045, alpha: 1)
-        navController.navigationBar.prefersLargeTitles = true
+        //navController.navigationBar.prefersLargeTitles = true
         
         let networkNavigator = DefaultContactsNavigator(services: networkUseCaseProvider,
                                                      navigationController: navController,

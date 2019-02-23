@@ -10,6 +10,7 @@ import UIKit
 import RxDataSources
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class ContactsListViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -20,19 +21,18 @@ class ContactsListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         configureTableView()
         bindViewModel()
-
-//        // MARK: - Binding ViewModel
-//        viewModel.viewModelData
-//            .bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI()))
-//            .disposed(by: disposeBag)
     }
     
     private func configureTableView() {
         tableView.tableFooterView = UIView()
         tableView.refreshControl = UIRefreshControl()
+        
+        tableView.rx.itemSelected.subscribe(onNext: { indexPath in
+            self.tableView.deselectRow(at: indexPath, animated: true)
+        }).disposed(by: disposeBag)
     }
     
     private func bindViewModel() {
@@ -93,7 +93,7 @@ extension ContactsListViewController {
                 }
                 return tryMakingCell() ?? UITableViewCell()
         }, titleForHeaderInSection: {(dataSource, section) in
-            return dataSource[section].identity
+            return dataSource[section].identity.uppercased()
         })
     }
 }
@@ -105,6 +105,9 @@ class ContactListCell: UITableViewCell {
     @IBOutlet weak var contactImageView: UIImageView!
     
     func configure(_ viewModel: Contact) {
+        let imageURL = URL(string: Constants.BASE_URL+viewModel.profilePic)
+        contactImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
+        
         self.contactName.text = viewModel.firstName + viewModel.lastName
         favouriteStatusImage.isHidden = !viewModel.favourite
     }
