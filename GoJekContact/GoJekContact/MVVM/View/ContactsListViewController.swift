@@ -10,7 +10,6 @@ import UIKit
 import RxDataSources
 import RxSwift
 import RxCocoa
-import Alamofire
 
 class ContactsListViewController: UIViewController {
     private let disposeBag = DisposeBag()
@@ -48,21 +47,25 @@ class ContactsListViewController: UIViewController {
                                          createContactAction: addContactButton.rx.tap.asDriver(),
                                          selection: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
-        output.contacts.drive(tableView.rx.items(cellIdentifier: ContactListCell.reuseIdentifier, cellType: ContactListCell.self)){ table, viewModel, cell in
+        output.contacts.drive(tableView.rx.items(cellIdentifier: ContactListCell.reuseIdentifier, cellType: ContactListCell.self)) { table, viewModel, cell in
             cell.configure(viewModel)
         }.disposed(by: disposeBag)
+        
+        output.fetching
+            .drive(tableView.refreshControl!.rx.isRefreshing)
+            .disposed(by: disposeBag)
     }
     
-    @IBAction func addContactAction(_ sender: UIBarButtonItem) {
-        Alamofire.request(Constants.BASE_URL + "contacts.json",
-                          method: .get).validate().responseJSON(queue: DispatchQueue(label: "Manage User Contact", qos: .background)) { (response) in
-                            
-            //Handle Error
-            guard let responseDics = Utility.handleserviceError(response: response) else { return }
-
-                print("\(responseDics)")
-        }
-    }
+//    @IBAction func addContactAction(_ sender: UIBarButtonItem) {
+//        Alamofire.request(Constants.BASE_URL + "contacts.json",
+//                          method: .get).validate().responseJSON(queue: DispatchQueue(label: "Manage User Contact", qos: .background)) { (response) in
+//
+//            //Handle Error
+//            guard let responseDics = Utility.handleserviceError(response: response) else { return }
+//
+//                print("\(responseDics)")
+//        }
+//    }
     
 }
 
@@ -92,5 +95,6 @@ class ContactListCell: UITableViewCell {
     
     func configure(_ viewModel: Contact) {
         self.contactName.text = viewModel.firstName + viewModel.lastName
+        favouriteStatusImage.isHidden = !viewModel.favourite
     }
 }

@@ -25,19 +25,26 @@ public struct Contact: Codable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case firstName
-        case lastName
-        case favourite
-        case uid
+        case firstName = "first_name"
+        case lastName = "last_name"
+        case favourite = "favorite"
+        case uid = "id"
     }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
+        if let uid = try container.decodeIfPresent(Int.self, forKey: Contact.CodingKeys(rawValue: CodingKeys.uid.rawValue)!) {
+            self.uid = uid
+        } else {
+            uid = try container.decodeIfPresent(Int.self, forKey: .uid) ?? 0
+        }
+        
+        
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
         favourite = try container.decode(Bool.self, forKey: .favourite)
-        uid = try container.decode(Int.self, forKey: .favourite)
+        //print("")
     }
 }
 
