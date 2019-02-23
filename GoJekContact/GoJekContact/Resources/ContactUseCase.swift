@@ -15,6 +15,7 @@ public protocol UseCaseProvider {
 
 public protocol ContactUseCase {
     func contacts() -> Observable<[Contact]>
+    func contact(contactId: Int) -> Observable<Contact>
     func save(contact: Contact) -> Observable<Void>
     func delete(contact: Contact) -> Observable<Void>
     func update(contact: Contact) -> Observable<Void>

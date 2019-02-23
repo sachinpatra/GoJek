@@ -72,7 +72,7 @@ final class Cache<T: Encodable>: AbstractCache where T == T.Encoder.DomainType {
                 .appendingPathComponent(FileNames.objectsFileName)
             self.createDirectoryIfNeeded(at: directoryURL)
             do {
-                try NSKeyedArchiver.archivedData(withRootObject: objects.map{ $0.encoder })
+                try NSKeyedArchiver.archivedData(withRootObject: objects.map { $0.encoder })
                     .write(to: path)
                 observer(.completed)
             } catch {

@@ -31,6 +31,12 @@ final class NetworkContactsUseCase<Cache>: ContactUseCase where Cache: AbstractC
         return fetchPosts.concat(stored)
     }
     
+    func contact(contactId: Int) -> Observable<Contact> {
+        return network.fetchContact(contactId: "\(contactId)").map({
+            return $0
+        })
+    }
+    
     func save(contact: Contact) -> Observable<Void> {
         return network.createContact(contact: contact)
             .map { _ in }

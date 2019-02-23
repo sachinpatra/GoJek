@@ -17,11 +17,11 @@ extension ObservableType where E == Bool {
     
 }
 
-extension SharedSequenceConvertibleType {
-    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
-        return map { _ in }
-    }
-}
+//extension SharedSequenceConvertibleType {
+//    func mapToVoid() -> SharedSequence<SharingStrategy, Void> {
+//        return map { _ in }
+//    }
+//}
 
 extension ObservableType {
     

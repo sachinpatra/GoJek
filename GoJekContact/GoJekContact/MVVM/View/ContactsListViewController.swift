@@ -42,18 +42,27 @@ class ContactsListViewController: UIViewController {
         let pull = tableView.refreshControl!.rx
             .controlEvent(.valueChanged)
             .asDriver()
-        
+    
         let input = ContactsListViewModel.Input(fetchAllContactsAction: Driver.merge(viewWillAppear, pull),
                                          createContactAction: addContactButton.rx.tap.asDriver(),
                                          selection: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
-        output.contacts.drive(tableView.rx.items(cellIdentifier: ContactListCell.reuseIdentifier, cellType: ContactListCell.self)) { table, viewModel, cell in
-            cell.configure(viewModel)
-        }.disposed(by: disposeBag)
+//        output.contacts.drive(tableView.rx.items(cellIdentifier: ContactListCell.reuseIdentifier, cellType: ContactListCell.self)) { table, viewModel, cell in
+//            cell.configure(viewModel)
+//        }.disposed(by: disposeBag)
+        
+        output.contacts.drive(BehaviorRelay<[Contact]>(value: [])).disposed(by: disposeBag)
+        output.animateContacts
+                    .bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI()))
+                    .disposed(by: disposeBag)
         
         output.fetching
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
+        output.selectedContact
+            .drive()
+            .disposed(by: disposeBag)
+
     }
     
 //    @IBAction func addContactAction(_ sender: UIBarButtonItem) {
@@ -69,23 +78,25 @@ class ContactsListViewController: UIViewController {
     
 }
 
-//extension ContactsListViewController {
-//    func tableViewDataSourceUI() -> RxTableViewSectionedAnimatedDataSource<ContactListSectionModel> {
-//        return RxTableViewSectionedAnimatedDataSource<ContactListSectionModel>(
-//            animationConfiguration: AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .top),
-//            configureCell: { (dataSource, table, indexPath, item) in
-//                let tryMakingCell: () -> UITableViewCell? = {
-//                    switch item {
-//                    case .ContactRow(id: _, contact: _):
-//                        let cell: ContactListCell = table.dequeueReusableCell(forIndexPath: indexPath)
-//                        //cell.favouriteStatusImage.isHidden = true
-//                        return cell
-//                    }
-//                }
-//                return tryMakingCell() ?? UITableViewCell()
-//        })
-//    }
-//}
+extension ContactsListViewController {
+    func tableViewDataSourceUI() -> RxTableViewSectionedAnimatedDataSource<ContactListSectionModel> {
+        return RxTableViewSectionedAnimatedDataSource<ContactListSectionModel>(
+            animationConfiguration: AnimationConfiguration(insertAnimation: .top, reloadAnimation: .fade, deleteAnimation: .top),
+            configureCell: { (dataSource, table, indexPath, item) in
+                let tryMakingCell: () -> UITableViewCell? = {
+                    switch item {
+                    case .ContactRow(contact: let contact):
+                        let cell: ContactListCell = table.dequeueReusableCell(forIndexPath: indexPath)
+                        cell.configure(contact)
+                        return cell
+                    }
+                }
+                return tryMakingCell() ?? UITableViewCell()
+        }, titleForHeaderInSection: {(dataSource, section) in
+            return dataSource[section].identity
+        })
+    }
+}
 
 class ContactListCell: UITableViewCell {
     

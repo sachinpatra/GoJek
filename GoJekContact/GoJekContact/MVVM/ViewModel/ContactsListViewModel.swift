@@ -10,6 +10,7 @@ import Foundation
 import RxCocoa
 import RxDataSources
 import UIKit
+import RxSwift
 
 final class ContactsListViewModel: ViewModelType {
 //    var viewModelData: BehaviorRelay<[ContactListSectionModel]> {
@@ -26,6 +27,8 @@ final class ContactsListViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let contacts: Driver<[Contact]>
+        //let contactsTest: Driver<Observable<BehaviorRelay<[ContactListSectionModel]>>>
+        let animateContacts: BehaviorRelay<[ContactListSectionModel]>
         let createContact: Driver<Void>
         let selectedContact: Driver<Contact>
         let error: Driver<Error>
@@ -33,7 +36,8 @@ final class ContactsListViewModel: ViewModelType {
 
     private let useCase: ContactUseCase
     private let navigator: ContactsNavigator
-    
+    private let disposeBag = DisposeBag()
+
     init(useCase: ContactUseCase, navigator: ContactsNavigator) {
         self.useCase = useCase
         self.navigator = navigator
@@ -42,19 +46,44 @@ final class ContactsListViewModel: ViewModelType {
     func transform(input: Input) -> Output {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
-        let contacts = input.fetchAllContactsAction.flatMapLatest {
+        let animateContacts = BehaviorRelay<[ContactListSectionModel]>(value: [])
+
+//        let contacts = input.fetchAllContactsAction.flatMapLatest {
+//            return self.useCase.contacts()
+//                .trackActivity(activityIndicator)
+//                .trackError(errorTracker)
+//                .asDriverOnErrorJustComplete()
+//                //.map { $0.map { PostItemViewModel(with: $0) } }
+//        }
+        
+        let contacts = input.fetchAllContactsAction.flatMapLatest {_ in
             return self.useCase.contacts()
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
-                //.map { $0.map { PostItemViewModel(with: $0) } }
+                .map({ (contacts) -> ([Contact]) in
+                    var arrangedList = [ContactListSectionModel]()
+                    for value in UnicodeScalar("a").value...UnicodeScalar("z").value {
+                        let filteredOnChar = contacts.filter {
+                            $0.firstName.hasPrefix("\(UnicodeScalar(value)!)")
+                            }.map { (contact) -> ContactListSectionItem in
+                              return .ContactRow(contact: contact)
+                        }
+                        arrangedList.append(.ContactListSection(header: "\(UnicodeScalar(value)!)", items: filteredOnChar))
+                    }
+                    animateContacts.accept(arrangedList)
+                    return contacts
+                })
         }
         
         let fetching = activityIndicator.asDriver()
         let errors = errorTracker.asDriver()
         let selectedContact = input.selection
             .withLatestFrom(contacts) { (indexPath, contacts) -> Contact in
-                return contacts[indexPath.row]
+                switch  animateContacts.value[indexPath.section].items[indexPath.row] {
+                case .ContactRow(contact: let contact):
+                    return contact
+                }
             }.do(onNext: navigator.toContact)
         
         let createContact = input.createContactAction
@@ -62,6 +91,7 @@ final class ContactsListViewModel: ViewModelType {
         
         return Output(fetching: fetching,
                       contacts: contacts,
+                      animateContacts: animateContacts,
                       createContact: createContact,
                       selectedContact: selectedContact,
                       error: errors)

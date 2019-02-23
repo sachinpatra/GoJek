@@ -46,7 +46,7 @@ final class Network<T: Decodable> {
     }
     
     func getItem(_ path: String, itemId: String) -> Observable<T> {
-        let absolutePath = "\(endPoint)/\(path)/\(itemId)"
+        let absolutePath = "\(endPoint)/\(path)/\(itemId).json"
         return RxAlamofire
             .data(.get, absolutePath)
             .debug()

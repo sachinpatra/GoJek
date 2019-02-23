@@ -20,7 +20,7 @@ public final class ContactsNetwork {
     }
     
     public func fetchContact(contactId: String) -> Observable<Contact> {
-        return network.getItem("posts", itemId: contactId)
+        return network.getItem("contacts", itemId: contactId)
     }
     
     public func createContact(contact: Contact) -> Observable<Contact> {
