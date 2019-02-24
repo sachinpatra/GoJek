@@ -64,18 +64,6 @@ class ContactsListViewController: UIViewController {
             .disposed(by: disposeBag)
 
     }
-    
-//    @IBAction func addContactAction(_ sender: UIBarButtonItem) {
-//        Alamofire.request(Constants.BASE_URL + "contacts.json",
-//                          method: .get).validate().responseJSON(queue: DispatchQueue(label: "Manage User Contact", qos: .background)) { (response) in
-//
-//            //Handle Error
-//            guard let responseDics = Utility.handleserviceError(response: response) else { return }
-//
-//                print("\(responseDics)")
-//        }
-//    }
-    
 }
 
 extension ContactsListViewController {
@@ -105,8 +93,8 @@ class ContactListCell: UITableViewCell {
     @IBOutlet weak var contactImageView: UIImageView!
     
     func configure(_ viewModel: Contact) {
-        let imageURL = URL(string: Constants.BASE_URL+viewModel.profilePic)
-        contactImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
+//        let imageURL = URL(string: Constants.BASE_URL+viewModel.profilePic)
+//        contactImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
         
         self.contactName.text =  viewModel.firstName.capitalizingFirstLetter() + "  " + viewModel.lastName.capitalizingFirstLetter()
         favouriteStatusImage.isHidden = !viewModel.favourite

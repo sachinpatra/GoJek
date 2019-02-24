@@ -149,3 +149,39 @@ extension ContactListSectionModel: IdentifiableType, Equatable {
         }
     }
 }
+
+struct ContactDetailSection {
+    var header: String
+    var items: [Item]
+}
+
+struct ContactDetailRow {
+    var title: String
+    var detail: String
+}
+
+extension ContactDetailSection : AnimatableSectionModelType {
+    typealias Item = ContactDetailRow
+    
+    var identity: String {
+        return header
+    }
+    
+    init(original: ContactDetailSection, items: [Item]) {
+        self = original
+        self.items = items
+    }
+}
+
+extension ContactDetailRow: IdentifiableType, Equatable {
+    
+    typealias Identity = String
+    
+    static func == (lhs: ContactDetailRow, rhs: ContactDetailRow) -> Bool {
+        return true
+    }
+    
+    var identity: String {
+        return self.title
+    }
+}

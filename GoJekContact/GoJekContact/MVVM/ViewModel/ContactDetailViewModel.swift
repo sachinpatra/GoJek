@@ -24,7 +24,7 @@ extension ContactDetailViewModel {
         let fetchedContact: Driver<Contact>
         //        let save: Driver<Void>
         //        let delete: Driver<Void>
-        //        let editing: Driver<Bool>
+        let editing: Driver<Bool>
         let contact: Driver<Contact>
         let error: Driver<Error>
     }
@@ -66,7 +66,7 @@ final class ContactDetailViewModel: ViewModelType {
                     fetchedContact: fetchedContact,
 //                      save: savePost,
 //                      delete: deletePost,
-//                      editing: editing,
+                      editing: editing,
                       contact: contact,
                       error: errorTracker.asDriver())
     }
