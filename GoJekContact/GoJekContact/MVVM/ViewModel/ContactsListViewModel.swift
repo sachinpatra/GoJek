@@ -12,12 +12,7 @@ import RxDataSources
 import UIKit
 import RxSwift
 
-final class ContactsListViewModel: ViewModelType {
-//    var viewModelData: BehaviorRelay<[ContactListSectionModel]> {
-//        return BehaviorRelay<[ContactListSectionModel]>(value: [.ContactListSection(header: "Hello",
-//                                                                                    items: [.ContactRow(id: 1, contact: Contact())])])
-//    }
-    
+extension ContactsListViewModel {
     struct Input {
         let fetchAllContactsAction: Driver<Void>
         let createContactAction: Driver<Void>
@@ -27,12 +22,18 @@ final class ContactsListViewModel: ViewModelType {
     struct Output {
         let fetching: Driver<Bool>
         let contacts: Driver<[Contact]>
-        //let contactsTest: Driver<Observable<BehaviorRelay<[ContactListSectionModel]>>>
         let animateContacts: BehaviorRelay<[ContactListSectionModel]>
         let createContact: Driver<Void>
         let selectedContact: Driver<Contact>
         let error: Driver<Error>
     }
+}
+
+final class ContactsListViewModel: ViewModelType {
+//    var viewModelData: BehaviorRelay<[ContactListSectionModel]> {
+//        return BehaviorRelay<[ContactListSectionModel]>(value: [.ContactListSection(header: "Hello",
+//                                                                                    items: [.ContactRow(id: 1, contact: Contact())])])
+//    }
 
     private let useCase: ContactUseCase
     private let navigator: ContactsNavigator
@@ -83,6 +84,7 @@ final class ContactsListViewModel: ViewModelType {
                 switch  animateContacts.value[indexPath.section].items[indexPath.row] {
                 case .ContactRow(contact: let contact):
                     return contact
+                        //self.useCase.contact(contactId: contact.uid)
                 }
             }.do(onNext: navigator.toContact)
         

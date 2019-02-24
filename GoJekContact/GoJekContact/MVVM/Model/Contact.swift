@@ -60,9 +60,14 @@ public struct Contact: Codable {
         
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
-        detailURL = try container.decode(String.self, forKey: .detailURL)
         favourite = try container.decode(Bool.self, forKey: .favourite)
         profilePic = try container.decode(String.self, forKey: .profilePic)
+        
+        if let detailURL = try container.decodeIfPresent(String.self, forKey: Contact.CodingKeys(rawValue: CodingKeys.detailURL.rawValue)!) {
+            self.detailURL = detailURL
+        } else {
+            detailURL = try container.decodeIfPresent(String.self, forKey: .detailURL) ?? ""
+        }
         
         if let email = try container.decodeIfPresent(String.self, forKey: Contact.CodingKeys(rawValue: CodingKeys.email.rawValue)!) {
             self.email = email

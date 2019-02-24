@@ -42,6 +42,8 @@
 		8C43FC8D2220A84000325E67 /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8C2220A84000325E67 /* Cache.swift */; };
 		8C43FC8F2221DF0D00325E67 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC8E2221DF0D00325E67 /* ContactDetailsViewController.swift */; };
 		8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */; };
+		8C43FCB62222864400325E67 /* GradianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCB52222864400325E67 /* GradianView.swift */; };
+		8C43FCB82222DF8800325E67 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCB72222DF8800325E67 /* StringExtention.swift */; };
 		F0DAF82E247B99CB771F1B4A /* Pods_GoJekContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */; };
 		F46CD107AEE1CF4733174CEA /* Pods_GoJekContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +121,8 @@
 		8C43FC8C2220A84000325E67 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		8C43FC8E2221DF0D00325E67 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
 		8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
+		8C43FCB52222864400325E67 /* GradianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradianView.swift; sourceTree = "<group>"; };
+		8C43FCB72222DF8800325E67 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
 		B78E69090F98E51F13A33D06 /* Pods-GoJekContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoJekContact.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoJekContact/Pods-GoJekContact.release.xcconfig"; sourceTree = "<group>"; };
 		C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContactTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +257,7 @@
 				8C43FC7722207D3F00325E67 /* ViewModelType.swift */,
 				8C43FC7922207FBB00325E67 /* ContactsNavigator.swift */,
 				8C43FC7D22208FB300325E67 /* Application.swift */,
+				8C43FCB52222864400325E67 /* GradianView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				8C43FC5A221FDD0D00325E67 /* UITableViewExtention.swift */,
 				8C43FC6B222025FE00325E67 /* UIAlertControllerExtention.swift */,
 				8C43FC7B22208C1800325E67 /* UIStoryboardExtention.swift */,
+				8C43FCB72222DF8800325E67 /* StringExtention.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -606,10 +612,12 @@
 				8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */,
 				8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */,
 				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
+				8C43FCB82222DF8800325E67 /* StringExtention.swift in Sources */,
 				8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */,
 				8C43FC7622207AE900325E67 /* Contact.swift in Sources */,
 				8C43FC812220981800325E67 /* NetworkUseCaseProvider.swift in Sources */,
 				8C43FC70222056B700325E67 /* ActivityIndicator.swift in Sources */,
+				8C43FCB62222864400325E67 /* GradianView.swift in Sources */,
 				8C43FC832220997800325E67 /* Network.swift in Sources */,
 				8C43FC7822207D3F00325E67 /* ViewModelType.swift in Sources */,
 				8C43FC6C222025FE00325E67 /* UIAlertControllerExtention.swift in Sources */,

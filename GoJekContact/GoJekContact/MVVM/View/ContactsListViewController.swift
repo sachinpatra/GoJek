@@ -108,7 +108,7 @@ class ContactListCell: UITableViewCell {
         let imageURL = URL(string: Constants.BASE_URL+viewModel.profilePic)
         contactImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
         
-        self.contactName.text = viewModel.firstName + viewModel.lastName
+        self.contactName.text =  viewModel.firstName.capitalizingFirstLetter() + "  " + viewModel.lastName.capitalizingFirstLetter()
         favouriteStatusImage.isHidden = !viewModel.favourite
     }
 }
