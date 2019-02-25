@@ -57,7 +57,7 @@ final class Network<T: Decodable> {
     }
     
     func postItem(_ path: String, parameters: [String: Any]) -> Observable<T> {
-        let absolutePath = "\(endPoint)/\(path)"
+        let absolutePath = "\(endPoint)/\(path).json"
         return RxAlamofire
             .request(.post, absolutePath, parameters: parameters)
             .debug()
@@ -69,7 +69,7 @@ final class Network<T: Decodable> {
     }
     
     func updateItem(_ path: String, itemId: String, parameters: [String: Any]) -> Observable<T> {
-        let absolutePath = "\(endPoint)/\(path)/\(itemId)"
+        let absolutePath = "\(endPoint)/\(path)/\(itemId).json"
         return RxAlamofire
             .request(.put, absolutePath, parameters: parameters)
             .debug()
@@ -81,7 +81,7 @@ final class Network<T: Decodable> {
     }
     
     func deleteItem(_ path: String, itemId: String) -> Observable<T> {
-        let absolutePath = "\(endPoint)/\(path)/\(itemId)"
+        let absolutePath = "\(endPoint)/\(path)/\(itemId).json"
         return RxAlamofire
             .request(.delete, absolutePath)
             .debug()

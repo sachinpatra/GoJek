@@ -47,7 +47,7 @@ final class NetworkContactsUseCase<Cache>: ContactUseCase where Cache: AbstractC
     }
     
     func update(contact: Contact) -> Observable<Void> {
-        return network.updateContact(contactId: "\(contact.uid)", params: [:]).map({_ in})
+        return network.updateContact(contactId: "\(contact.uid)", params: contact.toJSON()).map({_ in})
     }
 }
 

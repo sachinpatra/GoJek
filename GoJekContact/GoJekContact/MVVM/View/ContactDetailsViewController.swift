@@ -26,7 +26,7 @@ class ContactDetailsViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var favouriteButton: UIButton!
     var tableData: BehaviorRelay<[ContactDetailSection]> = BehaviorRelay<[ContactDetailSection]>(value: [])
-    var contact: Contact!
+    //var contact: Contact!
     
     
     override func viewDidLoad() {
@@ -48,41 +48,60 @@ class ContactDetailsViewController: UIViewController {
             .asDriverOnErrorJustComplete()
         
         let input = ContactDetailViewModel.Input(editAction: editButton.rx.tap.asDriver(),
-                                                 fetchContactAction: viewWillAppear.asDriver())
+                                                 fetchContactAction: viewWillAppear.asDriver(),
+                                                 favouriteAction: favouriteButton.rx.tap.asDriver())
         
         let output = viewModel.transform(input: input)
         
         [output.editButtonTitle.drive(editButton.rx.title),
          output.contact.drive(contactBinding),
          output.fetchedContact.drive(fetchedContactBinding),
-         output.editing.drive(editBinding)
+         output.editing.drive(editBinding),
+         output.favourite.drive()
         ].forEach({$0.disposed(by: disposeBag)})
+        
+        tableView.rx.itemSelected
+            .subscribe(onNext: { indexPath in
+                if indexPath.section == 1 && indexPath.row == 0 {
+                    output.deleteContact.drive()
+                    .disposed(by: self.disposeBag)
+                    
+                    let alertController = UIAlertController(title: "GoJek", message: "Contact Deleted", preferredStyle: .alert)
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default){ (action: UIAlertAction) in
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }).disposed(by: disposeBag)
+        
+       
 
         tableData.bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI())).disposed(by: disposeBag)
     }
+    
     
     var editBinding: Binder<Bool> {
         return Binder(self, binding: { (vc, editing) in
             vc.cameraButton.isHidden = !editing
             vc.middleView.isHidden = editing
             
-            if editing {
-                let sections = [
-                    ContactDetailSection(header: "1St",
-                                         items: [ContactDetailRow(title: "First Name", detail: vc.contact.firstName),
-                                                                ContactDetailRow(title: "Last Name", detail: vc.contact.lastName),
-                                                                ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
-                                                                ContactDetailRow(title: "email", detail: vc.contact.email)])
-                ]
-                vc.tableData.accept(sections)
-            } else if vc.editButton.isEnabled {
-                let sections = [
-                    ContactDetailSection(header: "1St", items: [ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
-                                                                ContactDetailRow(title: "email", detail: vc.contact.email)]),
-                    ContactDetailSection(header: "Delete Cell", items: [ContactDetailRow(title: "Temp Title", detail: "Temp Ddetail")])
-                ]
-                vc.tableData.accept(sections)
-            }
+//            if editing {
+//                let sections = [
+//                    ContactDetailSection(header: "1St",
+//                                         items: [ContactDetailRow(title: "First Name", detail: vc.contact.firstName),
+//                                                                ContactDetailRow(title: "Last Name", detail: vc.contact.lastName),
+//                                                                ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
+//                                                                ContactDetailRow(title: "email", detail: vc.contact.email)])
+//                ]
+//                vc.tableData.accept(sections)
+//            } else if vc.editButton.isEnabled {
+//                let sections = [
+//                    ContactDetailSection(header: "1St", items: [ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
+//                                                                ContactDetailRow(title: "email", detail: vc.contact.email)]),
+//                    ContactDetailSection(header: "Delete Cell", items: [ContactDetailRow(title: "Temp Title", detail: "Temp Ddetail")])
+//                ]
+//                vc.tableData.accept(sections)
+//            }
         })
     }
     
@@ -92,14 +111,14 @@ class ContactDetailsViewController: UIViewController {
             vc.profileImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
             vc.favouriteButton.setImage(contact.favourite ? #imageLiteral(resourceName: "favourite_select") : #imageLiteral(resourceName: "favourite_unselect"), for: .normal)
             vc.nameLabel.text = contact.firstName.capitalizingFirstLetter() + "  " + contact.lastName.capitalizingFirstLetter()
-            vc.contact = contact
+            //vc.contact = contact
         })
     }
     var fetchedContactBinding: Binder<Contact> {
         return Binder(self, binding: { (vc, contact) in
             vc.tableView.refreshControl?.endRefreshing()
             vc.tableView.refreshControl?.removeFromSuperview()
-            vc.contact = contact
+            //vc.contact = contact
             vc.editButton.isEnabled = true
 
             let sections = [

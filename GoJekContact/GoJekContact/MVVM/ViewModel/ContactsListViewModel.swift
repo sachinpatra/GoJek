@@ -83,7 +83,6 @@ final class ContactsListViewModel: ViewModelType {
                 switch  animateContacts.value[indexPath.section].items[indexPath.row] {
                 case .ContactRow(contact: let contact):
                     return contact
-                        //self.useCase.contact(contactId: contact.uid)
                 }
             }.do(onNext: navigator.toContact)
         

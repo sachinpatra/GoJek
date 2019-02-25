@@ -160,7 +160,7 @@ struct ContactDetailRow {
     var detail: String
 }
 
-extension ContactDetailSection : AnimatableSectionModelType {
+extension ContactDetailSection: AnimatableSectionModelType {
     typealias Item = ContactDetailRow
     
     var identity: String {

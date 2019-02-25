@@ -12,7 +12,7 @@ import RxCocoa
 extension CreateContactViewModel {
     struct Input {
         let cancelAction: Driver<Void>
-        //        let saveTrigger: Driver<Void>
+        let saveAction: Driver<Void>
         //        let title: Driver<String>
         //        let details: Driver<String>
     }

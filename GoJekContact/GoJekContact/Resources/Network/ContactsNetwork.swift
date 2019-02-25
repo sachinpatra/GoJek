@@ -28,10 +28,10 @@ public final class ContactsNetwork {
     }
     
     public func deleteContact(contactId: String) -> Observable<Contact> {
-        return network.deleteItem("posts", itemId: contactId)
+        return network.deleteItem("contacts", itemId: contactId)
     }
     
     public func updateContact(contactId: String, params: [String: Any]) -> Observable<Contact> {
-        return network.updateItem("posts", itemId: contactId, parameters: params)
+        return network.updateItem("contacts", itemId: contactId, parameters: params)
     }
 }

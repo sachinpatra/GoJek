@@ -13,17 +13,15 @@ extension ContactDetailViewModel {
     struct Input {
         let editAction: Driver<Void>
         let fetchContactAction: Driver<Void>
+        let favouriteAction: Driver<Void>
 
-        //        let deleteTrigger: Driver<Void>
-        //        let title: Driver<String>
-        //        let details: Driver<String>
     }
     
     struct Output {
         let editButtonTitle: Driver<String>
         let fetchedContact: Driver<Contact>
-        //        let save: Driver<Void>
-        //        let delete: Driver<Void>
+        let favourite: Driver<Void>
+        let deleteContact: Driver<Void>
         let editing: Driver<Bool>
         let contact: Driver<Contact>
         let error: Driver<Error>
@@ -61,11 +59,26 @@ final class ContactDetailViewModel: ViewModelType {
                 .asDriverOnErrorJustComplete()
         }
         
+        let favourite = input.favouriteAction.withLatestFrom(contact)
+            .map { (contact) in
+                return Contact(firstName: contact.firstName, lastName: contact.lastName, email: contact.email, phoneNumber: contact.phoneNumber, detailURL: contact.detailURL, uid: contact.uid, profilePic: contact.profilePic, favourite: !contact.favourite)
+            }.flatMapLatest { [unowned self] in
+                return self.useCase.update(contact: $0)
+                    .trackActivity(activityIndicator)
+                    .asDriverOnErrorJustComplete()
+        }
+        
+       let deleteContact = self.useCase.delete(contact: self.contact)
+            .trackError(errorTracker)
+            .asDriverOnErrorJustComplete().asDriver()
+        
+        
         return Output(
                     editButtonTitle: editButtonTitle,
                     fetchedContact: fetchedContact,
+                    favourite: favourite,
 //                      save: savePost,
-//                      delete: deletePost,
+                      deleteContact: deleteContact,
                       editing: editing,
                       contact: contact,
                       error: errorTracker.asDriver())
