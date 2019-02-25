@@ -37,7 +37,6 @@ final class ContactsListViewModel: ViewModelType {
 
     private let useCase: ContactUseCase
     private let navigator: ContactsNavigator
-    private let disposeBag = DisposeBag()
 
     init(useCase: ContactUseCase, navigator: ContactsNavigator) {
         self.useCase = useCase

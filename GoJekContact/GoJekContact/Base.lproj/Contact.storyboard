@@ -155,7 +155,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="124"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sachin Patra" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhu-bM-BUo">
-                                                <rect key="frame" x="133.5" y="0.0" width="108" height="40"/>
+                                                <rect key="frame" x="139" y="0.0" width="97" height="40"/>
                                                 <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -164,49 +164,49 @@
                                                 <rect key="frame" x="44" y="52" width="287" height="64"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="N1V-fe-3IC">
-                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="44"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="287" height="44.5"/>
                                                         <subviews>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xwA-mD-Z6F">
-                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="44"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="45" height="44.5"/>
                                                                 <state key="normal" image="message"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qe3-dX-Bjb">
-                                                                <rect key="frame" x="81" y="0.0" width="44.5" height="44"/>
+                                                                <rect key="frame" x="81" y="0.0" width="44.5" height="44.5"/>
                                                                 <state key="normal" image="call"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TRx-C1-oAh">
-                                                                <rect key="frame" x="161.5" y="0.0" width="45" height="44"/>
+                                                                <rect key="frame" x="161.5" y="0.0" width="45" height="44.5"/>
                                                                 <state key="normal" image="email"/>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RuV-aB-aT7">
-                                                                <rect key="frame" x="242.5" y="0.0" width="44.5" height="44"/>
+                                                                <rect key="frame" x="242.5" y="0.0" width="44.5" height="44.5"/>
                                                                 <state key="normal" image="favourite_select"/>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="y7N-UF-7lp">
-                                                        <rect key="frame" x="0.0" y="47" width="287" height="17"/>
+                                                        <rect key="frame" x="0.0" y="47.5" width="287" height="16.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gZb-Fd-MLg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="60.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="call" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g5W-OC-hFV">
-                                                                <rect key="frame" x="75.5" y="0.0" width="60.5" height="17"/>
+                                                                <rect key="frame" x="75.5" y="0.0" width="60.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ue4-9f-OeH">
-                                                                <rect key="frame" x="151" y="0.0" width="60.5" height="17"/>
+                                                                <rect key="frame" x="151" y="0.0" width="60.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favourite" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25Z-Zu-jRI">
-                                                                <rect key="frame" x="226.5" y="0.0" width="60.5" height="17"/>
+                                                                <rect key="frame" x="226.5" y="0.0" width="60.5" height="16.5"/>
                                                                 <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="14"/>
                                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <nil key="highlightedColor"/>
@@ -340,6 +340,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEw-40-7oh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1668" y="816.34182908545733"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="T7V-xh-x63">
+            <objects>
+                <viewController storyboardIdentifier="CreateContactViewController" id="xgh-p7-Av4" customClass="CreateContactViewController" customModule="GoJekContact" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="e1m-44-zBj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lok-YM-CKW"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="qXl-Yz-ce9">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="kuC-b9-RCh"/>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="cancelButton" destination="kuC-b9-RCh" id="efX-sX-cdy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1gX-gh-gCz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <barButtonItem title="Item" id="kH3-ba-UDC"/>
+            </objects>
+            <point key="canvasLocation" x="2285" y="1300"/>
         </scene>
     </scenes>
     <resources>

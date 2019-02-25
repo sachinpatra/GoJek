@@ -44,6 +44,8 @@
 		8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */; };
 		8C43FCB62222864400325E67 /* GradianView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCB52222864400325E67 /* GradianView.swift */; };
 		8C43FCB82222DF8800325E67 /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCB72222DF8800325E67 /* StringExtention.swift */; };
+		8C43FCBB2223BEB900325E67 /* CreateContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCBA2223BEB900325E67 /* CreateContactViewController.swift */; };
+		8C43FCBD2223C02F00325E67 /* CreateContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FCBC2223C02F00325E67 /* CreateContactViewModel.swift */; };
 		F0DAF82E247B99CB771F1B4A /* Pods_GoJekContactTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */; };
 		F46CD107AEE1CF4733174CEA /* Pods_GoJekContact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */; };
 /* End PBXBuildFile section */
@@ -123,6 +125,8 @@
 		8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModel.swift; sourceTree = "<group>"; };
 		8C43FCB52222864400325E67 /* GradianView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradianView.swift; sourceTree = "<group>"; };
 		8C43FCB72222DF8800325E67 /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		8C43FCBA2223BEB900325E67 /* CreateContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewController.swift; sourceTree = "<group>"; };
+		8C43FCBC2223C02F00325E67 /* CreateContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContactViewModel.swift; sourceTree = "<group>"; };
 		B78E69090F98E51F13A33D06 /* Pods-GoJekContact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoJekContact.release.xcconfig"; path = "Pods/Target Support Files/Pods-GoJekContact/Pods-GoJekContact.release.xcconfig"; sourceTree = "<group>"; };
 		C56953ED68E5531E8523CFF7 /* Pods_GoJekContactTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContactTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C904AB24C8D0B73CE853B981 /* Pods_GoJekContact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoJekContact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +243,7 @@
 			children = (
 				8C43FC66221FFEA000325E67 /* ContactsListViewController.swift */,
 				8C43FC8E2221DF0D00325E67 /* ContactDetailsViewController.swift */,
+				8C43FCBA2223BEB900325E67 /* CreateContactViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			children = (
 				8C43FC61221FE05A00325E67 /* ContactsListViewModel.swift */,
 				8C43FC902221E15300325E67 /* ContactDetailViewModel.swift */,
+				8C43FCBC2223C02F00325E67 /* CreateContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -612,11 +618,13 @@
 				8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */,
 				8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */,
 				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
+				8C43FCBB2223BEB900325E67 /* CreateContactViewController.swift in Sources */,
 				8C43FCB82222DF8800325E67 /* StringExtention.swift in Sources */,
 				8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */,
 				8C43FC7622207AE900325E67 /* Contact.swift in Sources */,
 				8C43FC812220981800325E67 /* NetworkUseCaseProvider.swift in Sources */,
 				8C43FC70222056B700325E67 /* ActivityIndicator.swift in Sources */,
+				8C43FCBD2223C02F00325E67 /* CreateContactViewModel.swift in Sources */,
 				8C43FCB62222864400325E67 /* GradianView.swift in Sources */,
 				8C43FC832220997800325E67 /* Network.swift in Sources */,
 				8C43FC7822207D3F00325E67 /* ViewModelType.swift in Sources */,

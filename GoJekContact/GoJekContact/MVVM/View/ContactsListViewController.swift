@@ -47,22 +47,20 @@ class ContactsListViewController: UIViewController {
                                          createContactAction: addContactButton.rx.tap.asDriver(),
                                          selection: tableView.rx.itemSelected.asDriver())
         let output = viewModel.transform(input: input)
-//        output.contacts.drive(tableView.rx.items(cellIdentifier: ContactListCell.reuseIdentifier, cellType: ContactListCell.self)) { table, viewModel, cell in
-//            cell.configure(viewModel)
-//        }.disposed(by: disposeBag)
         
         output.contacts.drive(BehaviorRelay<[Contact]>(value: [])).disposed(by: disposeBag)
         output.animateContacts
                     .bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI()))
                     .disposed(by: disposeBag)
-        
         output.fetching
             .drive(tableView.refreshControl!.rx.isRefreshing)
             .disposed(by: disposeBag)
         output.selectedContact
             .drive()
             .disposed(by: disposeBag)
-
+        output.createContact
+            .drive()
+            .disposed(by: disposeBag)
     }
 }
 
