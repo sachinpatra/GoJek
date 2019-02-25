@@ -57,7 +57,7 @@ final class Network<T: Decodable> {
     }
     
     func postItem(_ path: String, parameters: [String: Any]) -> Observable<T> {
-        let absolutePath = "\(endPoint)/\(path).json"
+        let absolutePath = "\(endPoint)/\(path)"
         return RxAlamofire
             .request(.post, absolutePath, parameters: parameters)
             .debug()

@@ -67,15 +67,13 @@ class ContactDetailsViewController: UIViewController {
                     .disposed(by: self.disposeBag)
                     
                     let alertController = UIAlertController(title: "GoJek", message: "Contact Deleted", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default){ (action: UIAlertAction) in
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) in
                         self.navigationController?.popViewController(animated: true)
                     })
                     self.present(alertController, animated: true, completion: nil)
                 }
             }).disposed(by: disposeBag)
         
-       
-
         tableData.bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI())).disposed(by: disposeBag)
     }
     

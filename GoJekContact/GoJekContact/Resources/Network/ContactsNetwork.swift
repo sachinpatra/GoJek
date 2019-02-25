@@ -24,7 +24,7 @@ public final class ContactsNetwork {
     }
     
     public func createContact(contact: Contact) -> Observable<Contact> {
-        return network.postItem("posts", parameters: contact.toJSON())
+        return network.postItem("contacts.json", parameters: contact.toJSON())
     }
     
     public func deleteContact(contactId: String) -> Observable<Contact> {
