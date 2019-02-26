@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import RxAlamofire
 import RxSwift
+import SwiftyJSON
 
 final class NetworkProvider {
     private let apiEndpoint: String
@@ -58,8 +59,11 @@ final class Network<T: Decodable> {
     
     func postItem(_ path: String, parameters: [String: Any]) -> Observable<T> {
         let absolutePath = "\(endPoint)/\(path)"
+        let params = JSON(parameters)
+        let payload = params.rawString()!
         return RxAlamofire
-            .request(.post, absolutePath, parameters: parameters)
+//            .request(.post, absolutePath, parameters: parameters)
+            .request(.post, absolutePath, encoding: payload)
             .debug()
             .observeOn(scheduler)
             .data()
@@ -70,8 +74,11 @@ final class Network<T: Decodable> {
     
     func updateItem(_ path: String, itemId: String, parameters: [String: Any]) -> Observable<T> {
         let absolutePath = "\(endPoint)/\(path)/\(itemId).json"
+        let params = JSON(parameters)
+        let payload = params.rawString()!
         return RxAlamofire
-            .request(.put, absolutePath, parameters: parameters)
+//            .request(.put, absolutePath, parameters: parameters)
+            .request(.post, absolutePath, encoding: payload)
             .debug()
             .observeOn(scheduler)
             .data()

@@ -10,8 +10,9 @@ import UIKit
 import RxSwift
 import RxCocoa
 import RxDataSources
+import MessageUI
 
-class ContactDetailsViewController: UIViewController {
+class ContactDetailsViewController: UIViewController, MFMessageComposeViewControllerDelegate, MFMailComposeViewControllerDelegate {
 
     private let disposeBag = DisposeBag()
     var viewModel: ContactDetailViewModel!
@@ -20,13 +21,11 @@ class ContactDetailsViewController: UIViewController {
     @IBOutlet weak var middleView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var messageButton: UIButton!
     @IBOutlet weak var callButton: UIButton!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var favouriteButton: UIButton!
     var tableData: BehaviorRelay<[ContactDetailSection]> = BehaviorRelay<[ContactDetailSection]>(value: [])
-    //var contact: Contact!
     
     
     override func viewDidLoad() {
@@ -49,15 +48,22 @@ class ContactDetailsViewController: UIViewController {
         
         let input = ContactDetailViewModel.Input(editAction: editButton.rx.tap.asDriver(),
                                                  fetchContactAction: viewWillAppear.asDriver(),
-                                                 favouriteAction: favouriteButton.rx.tap.asDriver())
+                                                 favouriteAction: favouriteButton.rx.tap.asDriver(),
+                                                 messageAction: messageButton.rx.tap.asDriver(),
+                                                 callAction: callButton.rx.tap.asDriver(),
+                                                 emailAction: emailButton.rx.tap.asDriver())
+        
         
         let output = viewModel.transform(input: input)
         
-        [output.editButtonTitle.drive(editButton.rx.title),
+        [
          output.contact.drive(contactBinding),
          output.fetchedContact.drive(fetchedContactBinding),
-         output.editing.drive(editBinding),
-         output.favourite.drive()
+         output.editing.drive(),
+         output.favourite.drive(),
+         output.message.drive(messageBinding),
+         output.call.drive(callBinding),
+         output.email.drive(emailBinding)
         ].forEach({$0.disposed(by: disposeBag)})
         
         tableView.rx.itemSelected
@@ -77,30 +83,41 @@ class ContactDetailsViewController: UIViewController {
         tableData.bind(to: tableView.rx.items(dataSource: tableViewDataSourceUI())).disposed(by: disposeBag)
     }
     
-    
-    var editBinding: Binder<Bool> {
-        return Binder(self, binding: { (vc, editing) in
-            vc.cameraButton.isHidden = !editing
-            vc.middleView.isHidden = editing
-            
-//            if editing {
-//                let sections = [
-//                    ContactDetailSection(header: "1St",
-//                                         items: [ContactDetailRow(title: "First Name", detail: vc.contact.firstName),
-//                                                                ContactDetailRow(title: "Last Name", detail: vc.contact.lastName),
-//                                                                ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
-//                                                                ContactDetailRow(title: "email", detail: vc.contact.email)])
-//                ]
-//                vc.tableData.accept(sections)
-//            } else if vc.editButton.isEnabled {
-//                let sections = [
-//                    ContactDetailSection(header: "1St", items: [ContactDetailRow(title: "mobile", detail: vc.contact.phoneNumber),
-//                                                                ContactDetailRow(title: "email", detail: vc.contact.email)]),
-//                    ContactDetailSection(header: "Delete Cell", items: [ContactDetailRow(title: "Temp Title", detail: "Temp Ddetail")])
-//                ]
-//                vc.tableData.accept(sections)
-//            }
+    var callBinding: Binder<String> {
+        return Binder(self, binding: { (vc, phoneNumber) in
+            if let url = URL(string: "tel://\(phoneNumber)"), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url)
+            }
         })
+    }
+    
+    var emailBinding: Binder<String> {
+        return Binder(self, binding: { (vc, email) in
+            if MFMailComposeViewController.canSendMail() {
+                let mail = MFMailComposeViewController()
+                mail.mailComposeDelegate = self
+                mail.setToRecipients([email])
+                vc.present(mail, animated: true)
+            }
+        })
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true)
+    }
+    
+    var messageBinding: Binder<String> {
+        return Binder(self, binding: { (vc, phoneNumber) in
+            if MFMessageComposeViewController.canSendText() {
+                let controller = MFMessageComposeViewController()
+                controller.body = ""
+                controller.recipients = [phoneNumber]
+                controller.messageComposeDelegate = self
+                vc.present(controller, animated: true, completion: nil)
+            }
+        })
+    }
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     var contactBinding: Binder<Contact> {
@@ -109,15 +126,17 @@ class ContactDetailsViewController: UIViewController {
             vc.profileImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
             vc.favouriteButton.setImage(contact.favourite ? #imageLiteral(resourceName: "favourite_select") : #imageLiteral(resourceName: "favourite_unselect"), for: .normal)
             vc.nameLabel.text = contact.firstName.capitalizingFirstLetter() + "  " + contact.lastName.capitalizingFirstLetter()
-            //vc.contact = contact
         })
     }
     var fetchedContactBinding: Binder<Contact> {
         return Binder(self, binding: { (vc, contact) in
             vc.tableView.refreshControl?.endRefreshing()
             vc.tableView.refreshControl?.removeFromSuperview()
-            //vc.contact = contact
             vc.editButton.isEnabled = true
+            vc.messageButton.isEnabled = true
+            vc.callButton.isEnabled = true
+            vc.emailButton.isEnabled = true
+            vc.favouriteButton.isEnabled = true
 
             let sections = [
                 ContactDetailSection(header: "1St", items: [ContactDetailRow(title: "mobile", detail: contact.phoneNumber),

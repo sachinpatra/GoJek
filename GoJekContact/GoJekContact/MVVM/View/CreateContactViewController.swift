@@ -10,6 +10,19 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+//import Alamofire
+//import SwiftyJSON
+//
+//func handleserviceError(response: DataResponse<Any>) -> [String: JSON]? {
+//    guard response.result.isSuccess else {
+//        return nil
+//    }
+//
+//    guard let responseDics = JSON(response.result.value!).dictionary else { return nil }
+//
+//    return responseDics
+//}
+
 class CreateContactViewController: UITableViewController {
 
     private let disposeBag = DisposeBag()
@@ -23,6 +36,16 @@ class CreateContactViewController: UITableViewController {
     @IBOutlet weak var mobileTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    var output: CreateContactViewModel.Output!
+    
+    lazy var picker: UIImagePickerController = {
+        $0.delegate = self
+        $0.sourceType = .camera
+        $0.allowsEditing = false
+        return $0
+    }(UIImagePickerController())
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -33,6 +56,16 @@ class CreateContactViewController: UITableViewController {
 
         
         bindViewModel()
+        
+//        var params = JSON(["first_name": "BapiSachin",
+//                           "last_name": "Patra"])
+//        var payload = params.rawString()!
+//        Alamofire.request("https://gojek-contacts-app.herokuapp.com/contacts/4032.json",
+//                          method: .post,
+//                          encoding: payload).validate().responseJSON(queue: DispatchQueue(label: "SignIn", qos: .background)) { (response) in
+//                            print("\(response)")
+//                            guard let responseDics = handleserviceError(response: response) else { return }
+//        }
 
     }
 
@@ -46,10 +79,56 @@ class CreateContactViewController: UITableViewController {
                                                  email: emailTextField.rx.text.orEmpty.asDriver()
         )
         
-        let output = viewModel.transform(input: input)
+        output = viewModel.transform(input: input)
 
         [output.dismiss.drive(),
-         output.doneEnabled.drive(saveButton.rx.isEnabled)
-            ].forEach({$0.disposed(by: disposeBag)})
+         output.contact.drive(contactBinding),
+         output.doneEnabled.drive(saveButton.rx.isEnabled),
+         output.error.drive( Binder(self, binding: { (vc, error) in
+            print("\(error.localizedDescription)")
+         }))
+        ].forEach({$0.disposed(by: disposeBag)})
+        
+        cameraButton.rx.tap.subscribe(onNext: { [unowned self] in
+            self.present(self.picker, animated: true)
+        }).disposed(by: disposeBag)
+    }
+    
+    var contactBinding: Binder<Contact?> {
+        return Binder(self, binding: { (vc, contact) in
+            if let con = contact {
+                let imageURL = URL(string: Constants.BASE_URL+con.profilePic)
+                vc.profileImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "placeholder"))
+                vc.firstNameTextField.text = con.firstName
+                vc.lastNameTextField.text = con.lastName
+                vc.mobileTextField.text = con.phoneNumber
+                vc.emailTextField.text = con.email
+            }
+        })
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 164.5
+        } else {
+            return 44
+        }
+    }
+}
+
+// MARK: - ImagePicker delegate
+extension CreateContactViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[.originalImage] as? UIImage else {
+            print("No image found")
+            return
+        }
+        profileImageView.image = image
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
 }

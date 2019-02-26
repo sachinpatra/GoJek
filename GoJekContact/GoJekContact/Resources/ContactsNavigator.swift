@@ -12,6 +12,7 @@ protocol ContactsNavigator {
     func toCreateContact()
     func toContact(_ contact: Contact)
     func toContacts()
+    func toEditContact(_ contact: Contact)
 }
 
 class DefaultContactsNavigator: ContactsNavigator {
@@ -36,9 +37,18 @@ class DefaultContactsNavigator: ContactsNavigator {
         navigationController.present(nc, animated: true, completion: nil)
     }
     
+    func toEditContact(_ contact: Contact) {
+        let navigator = DefaultCreateContactNavigator(navigationController: navigationController)
+        let viewModel = CreateContactViewModel(useCase: services.makeContactsUseCase(), navigator: navigator, contact: contact)
+        let vc = storyBoard.instantiateViewController(ofType: CreateContactViewController.self)
+        vc.viewModel = viewModel
+        let nc = UINavigationController(rootViewController: vc)
+        nc.navigationBar.tintColor = #colorLiteral(red: 0.3599199653, green: 0.9019572735, blue: 0.804747045, alpha: 1)
+        navigationController.present(nc, animated: true, completion: nil)
+    }
+    
     func toContact(_ contact: Contact) {
-        let navigator = DefaultDetailContactNavigator(navigationController: navigationController)
-        let viewModel = ContactDetailViewModel(contact: contact, useCase: services.makeContactsUseCase(), navigator: navigator)
+        let viewModel = ContactDetailViewModel(contact: contact, useCase: services.makeContactsUseCase(), navigator: self)
         let vc = storyBoard.instantiateViewController(ofType: ContactDetailsViewController.self)
         vc.viewModel = viewModel
         navigationController.pushViewController(vc, animated: true)
@@ -50,23 +60,6 @@ class DefaultContactsNavigator: ContactsNavigator {
         navigationController.pushViewController(vc, animated: true)
     }
 }
-
-protocol DetailContactNavigator {
-    func popToContacts()
-}
-
-final class DefaultDetailContactNavigator: DetailContactNavigator {
-    private let navigationController: UINavigationController
-    
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
-    func popToContacts() {
-        navigationController.popViewController(animated: true)
-    }
-}
-
 
 protocol CreateContactNavigator {
     func dismiss()

@@ -14,26 +14,30 @@ extension ContactDetailViewModel {
         let editAction: Driver<Void>
         let fetchContactAction: Driver<Void>
         let favouriteAction: Driver<Void>
-
+        let messageAction: Driver<Void>
+        let callAction: Driver<Void>
+        let emailAction: Driver<Void>
     }
     
     struct Output {
-        let editButtonTitle: Driver<String>
         let fetchedContact: Driver<Contact>
         let favourite: Driver<Void>
         let deleteContact: Driver<Void>
-        let editing: Driver<Bool>
         let contact: Driver<Contact>
         let error: Driver<Error>
+        let message: Driver<String>
+        let call: Driver<String>
+        let email: Driver<String>
+        let editing: Driver<Void>
     }
 }
 
 final class ContactDetailViewModel: ViewModelType {
-    private let contact: Contact
+    private var contact: Contact
     private let useCase: ContactUseCase
-    private let navigator: DefaultDetailContactNavigator
+    private let navigator: DefaultContactsNavigator
     
-    init(contact: Contact, useCase: ContactUseCase, navigator: DefaultDetailContactNavigator) {
+    init(contact: Contact, useCase: ContactUseCase, navigator: DefaultContactsNavigator) {
         self.contact = contact
         self.useCase = useCase
         self.navigator = navigator
@@ -44,12 +48,6 @@ final class ContactDetailViewModel: ViewModelType {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
 
-        let editing = input.editAction.scan(false) { editing, _ in
-            return !editing
-            }.startWith(false)
-        let editButtonTitle = editing.map { editing -> String in
-            return editing == true ? "Done" : "Edit"
-        }
         let contact = Driver.just(self.contact)
         
         let fetchedContact = input.fetchContactAction.flatMapLatest {_ in
@@ -57,7 +55,21 @@ final class ContactDetailViewModel: ViewModelType {
                 .trackActivity(activityIndicator)
                 .trackError(errorTracker)
                 .asDriverOnErrorJustComplete()
+                .map({ (fetchContact) -> Contact in
+                    self.contact.email = fetchContact.email
+                    self.contact.phoneNumber = fetchContact.phoneNumber
+                    return fetchContact
+                })
         }
+        
+        let editing = input.editAction
+            .map({ return self.navigator.toEditContact(self.contact) })
+        let message = input.messageAction
+            .map({ return self.contact.phoneNumber })
+        let call = input.callAction
+            .map({ return self.contact.phoneNumber })
+        let email = input.emailAction
+            .map({ return self.contact.email })
         
         let favourite = input.favouriteAction.withLatestFrom(contact)
             .map { (contact) in
@@ -74,13 +86,14 @@ final class ContactDetailViewModel: ViewModelType {
         
         
         return Output(
-                    editButtonTitle: editButtonTitle,
                     fetchedContact: fetchedContact,
                     favourite: favourite,
-//                      save: savePost,
                       deleteContact: deleteContact,
-                      editing: editing,
                       contact: contact,
-                      error: errorTracker.asDriver())
+                      error: errorTracker.asDriver(),
+                      message: message,
+                      call: call,
+                      email: email,
+                      editing: editing)
     }
 }

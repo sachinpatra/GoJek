@@ -1,11 +1,7 @@
 PODS:
-  - Action (3.8.0):
-    - RxCocoa (~> 4.3.0)
-    - RxSwift (~> 4.3.0)
   - Alamofire (4.7.3)
   - Differentiator (3.1.0)
   - Kingfisher (4.10.0)
-  - ReachabilitySwift (4.3.0)
   - RxAlamofire (4.3.0):
     - RxAlamofire/Core (= 4.3.0)
   - RxAlamofire/Core (4.3.0):
@@ -18,56 +14,42 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
-  - SwiftDate (5.0.13)
   - SwiftLint (0.27.0)
-  - SwiftyImage (1.3.0)
   - SwiftyJSON (4.2.0)
 
 DEPENDENCIES:
-  - Action
   - Alamofire
   - Kingfisher
-  - ReachabilitySwift
   - RxAlamofire
   - RxCocoa
   - RxDataSources
   - RxSwift
-  - SwiftDate
   - SwiftLint
-  - SwiftyImage
   - SwiftyJSON
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Action
     - Alamofire
     - Differentiator
     - Kingfisher
-    - ReachabilitySwift
     - RxAlamofire
     - RxCocoa
     - RxDataSources
     - RxSwift
-    - SwiftDate
     - SwiftLint
-    - SwiftyImage
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
-  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
-  SwiftyImage: 62a73a6d8cafb83d7ebbf98795c6d1ad8666bf02
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
 
-PODFILE CHECKSUM: fbc71addad9ff53a401ab33b94a74030875d46b1
+PODFILE CHECKSUM: 39a8a641951c43d8aa4c33f164162290ad52a8e5
 
 COCOAPODS: 1.5.3
