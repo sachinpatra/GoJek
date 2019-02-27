@@ -47,14 +47,6 @@ final class ContactsListViewModel: ViewModelType {
         let activityIndicator = ActivityIndicator()
         let errorTracker = ErrorTracker()
         let animateContacts = BehaviorRelay<[ContactListSectionModel]>(value: [])
-
-//        let contacts = input.fetchAllContactsAction.flatMapLatest {
-//            return self.useCase.contacts()
-//                .trackActivity(activityIndicator)
-//                .trackError(errorTracker)
-//                .asDriverOnErrorJustComplete()
-//                //.map { $0.map { PostItemViewModel(with: $0) } }
-//        }
         
         let contacts = input.fetchAllContactsAction.flatMapLatest {_ in
             return self.useCase.contacts()

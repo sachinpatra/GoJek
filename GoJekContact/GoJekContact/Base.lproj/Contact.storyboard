@@ -49,7 +49,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hell0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDJ-WO-gMv">
-                                                    <rect key="frame" x="72" y="24" width="237" height="16.5"/>
+                                                    <rect key="frame" x="72" y="24" width="237" height="17"/>
                                                     <fontDescription key="fontDescription" name="SFUIText-Bold" family="SF UI Text" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -91,7 +91,6 @@
                         <viewLayoutGuide key="safeArea" id="Etz-Qo-EvR"/>
                     </view>
                     <navigationItem key="navigationItem" title="Contact" id="VEl-ze-Zhj">
-                        <barButtonItem key="leftBarButtonItem" title="Groups" id="xDR-ze-Npi"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="1z8-Id-hGP"/>
                     </navigationItem>
                     <connections>

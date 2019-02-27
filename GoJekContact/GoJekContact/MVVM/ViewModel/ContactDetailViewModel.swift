@@ -35,9 +35,9 @@ extension ContactDetailViewModel {
 final class ContactDetailViewModel: ViewModelType {
     private var contact: Contact
     private let useCase: ContactUseCase
-    private let navigator: DefaultContactsNavigator
+    private let navigator: ContactsNavigator
     
-    init(contact: Contact, useCase: ContactUseCase, navigator: DefaultContactsNavigator) {
+    init(contact: Contact, useCase: ContactUseCase, navigator: ContactsNavigator) {
         self.contact = contact
         self.useCase = useCase
         self.navigator = navigator

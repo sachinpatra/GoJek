@@ -10,19 +10,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-//import Alamofire
-//import SwiftyJSON
-//
-//func handleserviceError(response: DataResponse<Any>) -> [String: JSON]? {
-//    guard response.result.isSuccess else {
-//        return nil
-//    }
-//
-//    guard let responseDics = JSON(response.result.value!).dictionary else { return nil }
-//
-//    return responseDics
-//}
-
 class CreateContactViewController: UITableViewController {
 
     private let disposeBag = DisposeBag()
@@ -54,19 +41,8 @@ class CreateContactViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         tableView.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
 
-        
+    
         bindViewModel()
-        
-//        var params = JSON(["first_name": "BapiSachin",
-//                           "last_name": "Patra"])
-//        var payload = params.rawString()!
-//        Alamofire.request("https://gojek-contacts-app.herokuapp.com/contacts/4032.json",
-//                          method: .post,
-//                          encoding: payload).validate().responseJSON(queue: DispatchQueue(label: "SignIn", qos: .background)) { (response) in
-//                            print("\(response)")
-//                            guard let responseDics = handleserviceError(response: response) else { return }
-//        }
-
     }
 
     private func bindViewModel() {

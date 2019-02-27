@@ -52,12 +52,9 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
                                                  messageAction: messageButton.rx.tap.asDriver(),
                                                  callAction: callButton.rx.tap.asDriver(),
                                                  emailAction: emailButton.rx.tap.asDriver())
-        
-        
         let output = viewModel.transform(input: input)
         
-        [
-         output.contact.drive(contactBinding),
+        [output.contact.drive(contactBinding),
          output.fetchedContact.drive(fetchedContactBinding),
          output.editing.drive(),
          output.favourite.drive(),
@@ -137,6 +134,7 @@ class ContactDetailsViewController: UIViewController, MFMessageComposeViewContro
             vc.callButton.isEnabled = true
             vc.emailButton.isEnabled = true
             vc.favouriteButton.isEnabled = true
+            vc.tableView.contentInset = UIEdgeInsets(top: -40, left: 0, bottom: 0, right: 0)
 
             let sections = [
                 ContactDetailSection(header: "1St", items: [ContactDetailRow(title: "mobile", detail: contact.phoneNumber),

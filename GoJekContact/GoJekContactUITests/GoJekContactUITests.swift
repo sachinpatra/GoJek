@@ -8,27 +8,67 @@
 
 import XCTest
 
+extension XCTestCase {
+    
+    func waitForActivityIndicatorToFinishSpinning(_ activityIndicatorElement: XCUIElement, timeout: TimeInterval = 30.0) {
+        //        let inProgressPredicate = NSPredicate(format: "exists == true")
+        //        self.expectation(for: inProgressPredicate, evaluatedWith: activityIndicatorElement, handler: nil)
+        //        self.waitForExpectations(timeout: timeout, handler: nil)
+        
+        let progressHaltedPredicate = NSPredicate(format: "exists == false")
+        self.expectation(for: progressHaltedPredicate, evaluatedWith: activityIndicatorElement, handler: nil)
+        self.waitForExpectations(timeout: timeout, handler: nil)
+    }
+    
+}
+
 class GoJekContactUITests: XCTestCase {
 
+    let app = XCUIApplication()
+
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+        self.app.launch()
     }
 
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testLoadAllContacts() {
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 70.0)
+    }
+    
+    func testCreateContact() {
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 70.0)
+        app.navigationBars["Contact"].buttons["Add"].tap()
+        app.tables.cells.containing(.staticText, identifier: "First Name").children(matching: .textField).element.tap()
+        app.tables.cells.containing(.staticText, identifier: "First Name").children(matching: .textField).element.typeText("My First Name")
+        app.tables.cells.containing(.staticText, identifier: "Last Name").children(matching: .textField).element.tap()
+        app.tables.cells.containing(.staticText, identifier: "Last Name").children(matching: .textField).element.typeText("My Last Name")
+        app.tables.cells.containing(.staticText, identifier: "mobile").children(matching: .textField).element.tap()
+        app.tables.cells.containing(.staticText, identifier: "mobile").children(matching: .textField).element.typeText("9742783146")
+        app.tables.cells.containing(.staticText, identifier: "email").children(matching: .textField).element.tap()
+        app.tables.cells.containing(.staticText, identifier: "email").children(matching: .textField).element.typeText("uitest@gojek.com")
+        app.navigationBars["GoJekContact.CreateContactView"].buttons["Done"].tap()
+
+    }
+    
+    func testDeleteContact() {
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 70.0)
+        app.tables.cells.firstMatch.tap()
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 30.0)
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["Delete"]/*[[".cells.staticTexts[\"Delete\"]",".staticTexts[\"Delete\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.alerts["GoJek"].buttons["OK"].tap()
+    }
+    
+    func testDetailContactAllOperions() {
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 70.0)
+        app.tables.cells.firstMatch.tap()
+        self.waitForActivityIndicatorToFinishSpinning(self.app.activityIndicators.firstMatch, timeout: 30.0)
+        
+        app.navigationBars["GoJekContact.ContactDetailsView"].buttons["Edit"].tap()
+        app.navigationBars["GoJekContact.CreateContactView"].buttons["Cancel"].tap()
+
     }
 
 }
