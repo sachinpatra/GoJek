@@ -10,7 +10,6 @@
 		2F7A38AC503AA9CCE8570C4E /* Pods_GoJekContactUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF7C85E5E63F0FAEFE21B57 /* Pods_GoJekContactUITests.framework */; };
 		8C43FC14221F204300325E67 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC13221F204300325E67 /* AppDelegate.swift */; };
 		8C43FC19221F204300325E67 /* Contact.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC17221F204300325E67 /* Contact.storyboard */; };
-		8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC1A221F204300325E67 /* GoJekContact.xcdatamodeld */; };
 		8C43FC1E221F204500325E67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1D221F204500325E67 /* Assets.xcassets */; };
 		8C43FC21221F204500325E67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */; };
 		8C43FC37221F204600325E67 /* GoJekContactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C43FC36221F204600325E67 /* GoJekContactUITests.swift */; };
@@ -79,7 +78,6 @@
 		8C43FC10221F204300325E67 /* GoJekContact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoJekContact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C43FC13221F204300325E67 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C43FC18221F204300325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contact.storyboard; sourceTree = "<group>"; };
-		8C43FC1B221F204300325E67 /* GoJekContact.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoJekContact.xcdatamodel; sourceTree = "<group>"; };
 		8C43FC1D221F204500325E67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C43FC20221F204500325E67 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C43FC22221F204500325E67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -211,7 +209,6 @@
 				8C43FC1D221F204500325E67 /* Assets.xcassets */,
 				8C43FC1F221F204500325E67 /* LaunchScreen.storyboard */,
 				8C43FC22221F204500325E67 /* Info.plist */,
-				8C43FC1A221F204300325E67 /* GoJekContact.xcdatamodeld */,
 			);
 			path = GoJekContact;
 			sourceTree = "<group>";
@@ -618,7 +615,6 @@
 				8C43FC67221FFEA000325E67 /* ContactsListViewController.swift in Sources */,
 				8C43FC912221E15300325E67 /* ContactDetailViewModel.swift in Sources */,
 				8C43FC5B221FDD0D00325E67 /* UITableViewExtention.swift in Sources */,
-				8C43FC1C221F204300325E67 /* GoJekContact.xcdatamodeld in Sources */,
 				8C43FCBB2223BEB900325E67 /* CreateContactViewController.swift in Sources */,
 				8C43FCB82222DF8800325E67 /* StringExtention.swift in Sources */,
 				8C43FC742220779F00325E67 /* ContactUseCase.swift in Sources */,
@@ -981,19 +977,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8C43FC1A221F204300325E67 /* GoJekContact.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8C43FC1B221F204300325E67 /* GoJekContact.xcdatamodel */,
-			);
-			currentVersion = 8C43FC1B221F204300325E67 /* GoJekContact.xcdatamodel */;
-			path = GoJekContact.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8C43FC08221F204200325E67 /* Project object */;
 }
